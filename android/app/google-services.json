@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "644179158986",
+    "project_id": "scottbebington-portfolio",
+    "storage_bucket": "scottbebington-portfolio.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:644179158986:android:53a3c5118273243c539133",
+        "android_client_info": {
+          "package_name": "com.example.myportfolio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-wMI5eypIffIjG-m-Hz6uov5V2POV14c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

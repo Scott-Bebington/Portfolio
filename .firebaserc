@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "scottbebington-portfolio",
+    "myportfolio": "scottbebington-portfolio"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
+}
