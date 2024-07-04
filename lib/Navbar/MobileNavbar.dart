@@ -178,7 +178,7 @@ class _MobileNavbarState extends State<MobileNavbar> with SingleTickerProviderSt
                     ),
                     onPressed: () {
                       navbarVariables.scrollController.animateTo(
-                        MediaQuery.of(context).size.height * 2,
+                        MediaQuery.of(context).size.height,
                         duration: Duration(milliseconds: 500),
                         curve: Curves.easeInOut,
                       );
@@ -204,7 +204,7 @@ class _MobileNavbarState extends State<MobileNavbar> with SingleTickerProviderSt
                     ),
                     onPressed: () {
                       navbarVariables.scrollController.animateTo(
-                        MediaQuery.of(context).size.height,
+                        MediaQuery.of(context).size.height * 2,
                         duration: Duration(milliseconds: 500),
                         curve: Curves.easeInOut,
                       );
@@ -230,7 +230,7 @@ class _MobileNavbarState extends State<MobileNavbar> with SingleTickerProviderSt
                     ),
                     onPressed: () {
                       navbarVariables.scrollController.animateTo(
-                        MediaQuery.of(context).size.height * 2,
+                        MediaQuery.of(context).size.height * 3,
                         duration: Duration(milliseconds: 500),
                         curve: Curves.easeInOut,
                       );

@@ -16,7 +16,16 @@ class _DesktopAboutState extends State<DesktopAbout> {
     return Container(
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
-      color: navbarVariables.backgroundColor,
+      decoration: BoxDecoration(
+        color: navbarVariables.backgroundColor,
+        border: Border(
+          bottom: BorderSide(
+            color: Colors.black,
+            width: 2.0,
+          ),
+        ),
+      ),
+      
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [

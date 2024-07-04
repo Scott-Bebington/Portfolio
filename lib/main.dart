@@ -60,6 +60,8 @@ class _PortfolioState extends State<Portfolio> {
             children: [
               Homepage(),
               AboutMe(),
+              Homepage(),
+              Homepage(),
             ],
           ),
           Navbar(),

@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:myportfolio/About/DesktopAbout.dart';
+import 'package:myportfolio/About/MobileAbout.dart';
+import 'package:myportfolio/About/TabletAbout.dart';
 
 class AboutMe extends StatefulWidget {
   const AboutMe({super.key});
@@ -15,19 +17,12 @@ class _AboutMeState extends State<AboutMe> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        if (constraints.maxWidth >= 600) {
+        if (constraints.maxWidth >= 1000) {
           return DesktopAbout();
+        } else if (constraints.maxWidth >= 600) {
+          return TabletAbout();
         } else {
-          // Layout for smaller screens
-          return Container(
-            color: Colors.green,
-            child: Center(
-              child: Text(
-                'Small Screen Layout',
-                style: TextStyle(fontSize: 18, color: Colors.white),
-              ),
-            ),
-          );
+          return MobileAbout();
         }
       },
     );
