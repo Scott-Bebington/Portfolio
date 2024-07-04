@@ -1,4 +1,8 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:myportfolio/Navbar/DesktopNavbar.dart';
+import 'package:myportfolio/Navbar/MobileNavbar.dart';
 
 class Navbar extends StatefulWidget {
   const Navbar({super.key});
@@ -10,6 +14,16 @@ class Navbar extends StatefulWidget {
 class _NavbarState extends State<Navbar> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        if (constraints.maxWidth >= 600) {
+          // Layout for larger screens
+          return DesktopNavbar();
+        } else {
+          // Layout for smaller screens
+          return MobileNavbar();
+        }
+      },
+    );
   }
 }
