@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:myportfolio/About/About.dart';
+import 'package:myportfolio/Contact/ContactMe.dart';
 import 'package:myportfolio/GlobalVariables.dart';
 import 'package:myportfolio/Homepage/Homepage.dart';
 import 'package:myportfolio/Navbar/Navbar.dart';
@@ -61,7 +62,7 @@ class _PortfolioState extends State<Portfolio> {
               Homepage(),
               AboutMe(),
               Homepage(),
-              Homepage(),
+              Contact(),
             ],
           ),
           Navbar(),
