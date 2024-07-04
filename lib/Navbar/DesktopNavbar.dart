@@ -11,7 +11,13 @@ class DesktopNavbar extends StatefulWidget {
 }
 
 class _DesktopNavbarState extends State<DesktopNavbar> {
-  int value = 0;
+  @override
+  void initState() {
+    super.initState();
+    navbarVariables.valueChanged.addListener(() {
+      setState(() {});
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +38,7 @@ class _DesktopNavbarState extends State<DesktopNavbar> {
               TextButton(
                 onPressed: () {
                   setState(() {
-                    value = 0;
+                    navbarVariables.valueChanged.value = 0;
                   });
                   navbarVariables.scrollController.animateTo(
                     0,
@@ -43,7 +49,7 @@ class _DesktopNavbarState extends State<DesktopNavbar> {
                 child: Text(
                   'Home',
                   style: TextStyle(
-                    color: value == 0 ? navbarVariables.secondaryColor : navbarVariables.primaryColor,
+                    color: navbarVariables.valueChanged.value == 0 ? navbarVariables.secondaryColor : navbarVariables.primaryColor,
                   ),
                 ),
               ),
@@ -51,7 +57,7 @@ class _DesktopNavbarState extends State<DesktopNavbar> {
               TextButton(
                 onPressed: () {
                   setState(() {
-                    value = 1;
+                    navbarVariables.valueChanged.value = 1;
                   });
                   navbarVariables.scrollController.animateTo(
                     MediaQuery.of(context).size.height,
@@ -62,7 +68,7 @@ class _DesktopNavbarState extends State<DesktopNavbar> {
                 child: Text(
                   'About',
                   style: TextStyle(
-                    color: value == 1 ? navbarVariables.secondaryColor : navbarVariables.primaryColor,
+                    color: navbarVariables.valueChanged.value == 1 ? navbarVariables.secondaryColor : navbarVariables.primaryColor,
                   ),
                 ),
               ),
@@ -70,7 +76,7 @@ class _DesktopNavbarState extends State<DesktopNavbar> {
               TextButton(
                 onPressed: () {
                   setState(() {
-                    value = 2;
+                    navbarVariables.valueChanged.value = 2;
                   });
                   navbarVariables.scrollController.animateTo(
                     MediaQuery.of(context).size.height * 2,
@@ -81,7 +87,7 @@ class _DesktopNavbarState extends State<DesktopNavbar> {
                 child: Text(
                   'Projects',
                   style: TextStyle(
-                    color: value == 2 ? navbarVariables.secondaryColor : navbarVariables.primaryColor,
+                    color: navbarVariables.valueChanged.value == 2 ? navbarVariables.secondaryColor : navbarVariables.primaryColor,
                   ),
                 ),
               ),
@@ -89,7 +95,7 @@ class _DesktopNavbarState extends State<DesktopNavbar> {
               TextButton(
                 onPressed: () {
                   setState(() {
-                    value = 3;
+                    navbarVariables.valueChanged.value = 3;
                   });
                   navbarVariables.scrollController.animateTo(
                     MediaQuery.of(context).size.height * 3,
@@ -100,7 +106,7 @@ class _DesktopNavbarState extends State<DesktopNavbar> {
                 child: Text(
                   'Contact',
                   style: TextStyle(
-                    color: value == 3 ? navbarVariables.secondaryColor : navbarVariables.primaryColor,
+                    color: navbarVariables.valueChanged.value == 3 ? navbarVariables.secondaryColor : navbarVariables.primaryColor,
                   ),
                 ),
               ),

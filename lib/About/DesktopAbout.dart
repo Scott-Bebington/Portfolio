@@ -51,7 +51,7 @@ class _DesktopAboutState extends State<DesktopAbout> {
                     style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, color: navbarVariables.primaryColor),
                   ),
                   Text(
-                    "My name is Scott Bebington, i am a passionate software developer specializing in full-stack web and app development. "
+                    "My name is Scott Bebington, I am a passionate software developer specializing in full-stack web and app development. "
                     "I graduated from the University of Pretoria in South Africa with a degree in Computer Science.",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
                   ),
@@ -63,7 +63,7 @@ class _DesktopAboutState extends State<DesktopAbout> {
                     style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, color: navbarVariables.primaryColor),
                   ),
                   Text(
-                    "I have experience in designing and developing robust web applications, handling both frontend and backend aspects."
+                    "I have experience in designing and developing robust web and mobile applications, handling both frontend and backend aspects."
                     "My technical skills include proficiency in languages such as JavaScript, Dart, Python and C++, and frameworks like React.js, Node.js, and Flutter.",
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
                   ),

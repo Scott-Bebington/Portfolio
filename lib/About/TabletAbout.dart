@@ -57,7 +57,7 @@ class _TabletAboutState extends State<TabletAbout> {
                         style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, color: navbarVariables.primaryColor),
                       ),
                       Text(
-                        "My name is Scott Bebington, i am a passionate software developer specializing in full-stack web and app development. "
+                        "My name is Scott Bebington, I am a passionate software developer specializing in full-stack web and app development. "
                         "I graduated from the University of Pretoria in South Africa with a degree in Computer Science.",
                         style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
                       ),

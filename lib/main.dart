@@ -7,6 +7,7 @@ import 'package:myportfolio/Contact/ContactMe.dart';
 import 'package:myportfolio/GlobalVariables.dart';
 import 'package:myportfolio/Homepage/Homepage.dart';
 import 'package:myportfolio/Navbar/Navbar.dart';
+import 'package:myportfolio/Projects/Projects.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -61,7 +62,7 @@ class _PortfolioState extends State<Portfolio> {
             children: [
               Homepage(),
               AboutMe(),
-              Homepage(),
+              Projects(),
               Contact(),
             ],
           ),

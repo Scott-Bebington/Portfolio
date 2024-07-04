@@ -20,7 +20,8 @@ class _MobileContactState extends State<MobileContact> {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.all(50),
+      constraints: BoxConstraints(minHeight: MediaQuery.of(context).size.height),
+      padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: navbarVariables.backgroundColor,
         border: Border(
