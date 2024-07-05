@@ -257,6 +257,7 @@ class _DesktopContactState extends State<DesktopContact> {
                 backgroundColor: WidgetStateProperty.all(navbarVariables.primaryColor),
               ),
               onPressed: () async {
+                await dotenv.load();
                 setState(() {
                   sendText = 'Sending...';
                 });
