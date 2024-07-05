@@ -250,6 +250,7 @@ class _TabletContactState extends State<TabletContact> {
                 backgroundColor: WidgetStateProperty.all(navbarVariables.primaryColor),
               ),
               onPressed: () async {
+                await dotenv.load();
                 setState(() {
                   sendText = 'Sending...';
                 });
