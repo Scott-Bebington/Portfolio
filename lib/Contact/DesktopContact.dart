@@ -257,26 +257,26 @@ class _DesktopContactState extends State<DesktopContact> {
                 backgroundColor: WidgetStateProperty.all(navbarVariables.primaryColor),
               ),
               onPressed: () async {
-                await dotenv.load();
+                
                 setState(() {
                   sendText = 'Sending...';
                 });
 
-                if (nameController.text.isEmpty || subjectController.text.isEmpty || emailController.text.isEmpty || phoneController.text.isEmpty) {
-                  setState(() {
-                    sendText = 'Send';
-                  });
-                  _showSnackBar("Please fill in all fields", false);
-                  return;
-                }
+                // if (nameController.text.isEmpty || subjectController.text.isEmpty || emailController.text.isEmpty || phoneController.text.isEmpty) {
+                //   setState(() {
+                //     sendText = 'Send';
+                //   });
+                //   _showSnackBar("Please fill in all fields", false);
+                //   return;
+                // }
 
-                if (!RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$').hasMatch(emailController.text)) {
-                  setState(() {
-                    sendText = 'Send';
-                  });
-                  _showSnackBar("Invalid email address", false);
-                  return;
-                }
+                // if (!RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$').hasMatch(emailController.text)) {
+                //   setState(() {
+                //     sendText = 'Send';
+                //   });
+                //   _showSnackBar("Invalid email address", false);
+                //   return;
+                // }
 
                 Map<String, dynamic> templateParams = {
                   'from_name': nameController.text,
@@ -287,6 +287,7 @@ class _DesktopContactState extends State<DesktopContact> {
                 };
 
                 try {
+                  await dotenv.load(fileName: ".env");
                   await emailjs.send(
                     dotenv.env['EMAILJS_SERVICE_KEY']!,
                     dotenv.env['EMAILJS_TEMPLATE_KEY']!,
