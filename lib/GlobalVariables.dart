@@ -1,5 +1,12 @@
 
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+void launchURL(String url) async {
+    if (!await launchUrl(Uri.parse(url))) {
+      print('Could not launch $url');
+    }
+  }
 
 class NavbarVariables {
   double xOffSet = 10;

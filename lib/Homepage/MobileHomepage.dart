@@ -57,7 +57,13 @@ class _MobileHomepageState extends State<MobileHomepage> {
                   style: ButtonStyle(
                     backgroundColor: WidgetStateProperty.all(navbarVariables.primaryColor),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    navbarVariables.scrollController.animateTo(
+                      MediaQuery.of(context).size.height * 3,
+                      duration: Duration(milliseconds: 500),
+                      curve: Curves.easeInOut,
+                    );
+                  },
                   child: Text('Get in touch', style: TextStyle(color: Colors.white)),
                 ),
               ],
@@ -69,23 +75,31 @@ class _MobileHomepageState extends State<MobileHomepage> {
             child: Row(
               children: [
                 IconButton(
-                  onPressed: () {},
-                  icon: Icon(FontAwesomeIcons.instagram, color: navbarVariables.primaryColor, size: 30),
+                  onPressed: () {
+                    launchURL('https://www.instagram.com/scott_bebington/');
+                  },
+                  icon: Icon(FontAwesomeIcons.instagram, color: navbarVariables.primaryColor),
                 ),
-                SizedBox(width: 5),
+                SizedBox(width: 10),
                 IconButton(
-                  onPressed: () {},
-                  icon: Icon(FontAwesomeIcons.linkedin, color: navbarVariables.primaryColor, size: 30),
+                  onPressed: () {
+                    launchURL('https://www.linkedin.com/in/scott-bebington/');
+                  },
+                  icon: Icon(FontAwesomeIcons.linkedin, color: navbarVariables.primaryColor),
                 ),
-                SizedBox(width: 5),
+                SizedBox(width: 10),
                 IconButton(
-                  onPressed: () {},
-                  icon: Icon(FontAwesomeIcons.github, color: navbarVariables.primaryColor, size: 30),
+                  onPressed: () {
+                    launchURL('https://github.com/Scott-Bebington');
+                  },
+                  icon: Icon(FontAwesomeIcons.github, color: navbarVariables.primaryColor),
                 ),
-                SizedBox(width: 5),
+                SizedBox(width: 10),
                 IconButton(
-                  onPressed: () {},
-                  icon: Icon(FontAwesomeIcons.whatsapp, color: navbarVariables.primaryColor, size: 30),
+                  onPressed: () {
+                    launchURL('https://wa.me/27716089080');
+                  },
+                  icon: Icon(FontAwesomeIcons.whatsapp, color: navbarVariables.primaryColor),
                 ),
               ],
             ),

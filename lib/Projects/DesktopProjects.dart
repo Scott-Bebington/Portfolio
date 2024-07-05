@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:myportfolio/GlobalVariables.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class DesktopProjects extends StatefulWidget {
   const DesktopProjects({super.key});
@@ -20,12 +19,6 @@ class _DesktopProjectsState extends State<DesktopProjects> {
       return 'svg';
     } else {
       return 'png';
-    }
-  }
-
-  void launchURL(String url) async {
-    if (!await launchUrl(Uri.parse(url))) {
-      print('Could not launch $url');
     }
   }
 

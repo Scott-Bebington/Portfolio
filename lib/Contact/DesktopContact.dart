@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_social_button/flutter_social_button.dart';
 import 'package:myportfolio/GlobalVariables.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class DesktopContact extends StatefulWidget {
   const DesktopContact({super.key});
@@ -42,21 +44,18 @@ class _DesktopContactState extends State<DesktopContact> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextButton(
-                onPressed: () {},
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.email,
-                      color: navbarVariables.primaryColor,
-                    ),
-                    SizedBox(width: 10),
-                    Text(
-                      'scottbebington@gmail.com',
-                      style: TextStyle(fontSize: 20, color: navbarVariables.primaryColor),
-                    ),
-                  ],
-                ),
+              Row(
+                children: [
+                  Icon(
+                    Icons.email,
+                    color: navbarVariables.primaryColor,
+                  ),
+                  SizedBox(width: 10),
+                  Text(
+                    'scottbebington@gmail.com',
+                    style: TextStyle(fontSize: 20, color: navbarVariables.primaryColor),
+                  ),
+                ],
               ),
               SizedBox(width: 20),
               Container(
@@ -65,22 +64,19 @@ class _DesktopContactState extends State<DesktopContact> {
                 color: Colors.grey,
               ),
               SizedBox(width: 20),
-              TextButton(
-                onPressed: () {},
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.phone,
-                      color: navbarVariables.primaryColor,
-                    ),
-                    SizedBox(width: 10),
-                    Text(
-                      '+ 27 71 608 9080',
-                      style: TextStyle(fontSize: 20, color: navbarVariables.primaryColor),
-                    ),
-                  ],
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.phone,
+                    color: navbarVariables.primaryColor,
+                  ),
+                  SizedBox(width: 10),
+                  Text(
+                    '+ 27 71 608 9080',
+                    style: TextStyle(fontSize: 20, color: navbarVariables.primaryColor),
+                  ),
+                ],
               ),
               SizedBox(width: 20),
               Container(
@@ -92,22 +88,30 @@ class _DesktopContactState extends State<DesktopContact> {
               Row(
                 children: [
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      launchURL('https://www.instagram.com/scott_bebington/');
+                    },
                     icon: Icon(FontAwesomeIcons.instagram, color: navbarVariables.primaryColor),
                   ),
                   SizedBox(width: 10),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      launchURL('https://www.linkedin.com/in/scott-bebington/');
+                    },
                     icon: Icon(FontAwesomeIcons.linkedin, color: navbarVariables.primaryColor),
                   ),
                   SizedBox(width: 10),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      launchURL('https://github.com/Scott-Bebington');
+                    },
                     icon: Icon(FontAwesomeIcons.github, color: navbarVariables.primaryColor),
                   ),
                   SizedBox(width: 10),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      launchURL('https://wa.me/27716089080');
+                    },
                     icon: Icon(FontAwesomeIcons.whatsapp, color: navbarVariables.primaryColor),
                   ),
                 ],
@@ -207,7 +211,6 @@ class _DesktopContactState extends State<DesktopContact> {
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.3,
                 child: TextField(
-                  
                   controller: subjectController,
                   decoration: InputDecoration(
                     labelText: "Message",
@@ -226,7 +229,6 @@ class _DesktopContactState extends State<DesktopContact> {
                         color: navbarVariables.secondaryColor,
                       ),
                     ),
-                    
                   ),
                   maxLines: null,
                   minLines: 7,
@@ -242,7 +244,35 @@ class _DesktopContactState extends State<DesktopContact> {
               style: ButtonStyle(
                 backgroundColor: WidgetStateProperty.all(navbarVariables.primaryColor),
               ),
-              onPressed: () {},
+              onPressed: () async {
+                var url = 'https://us-central1-seattle-coffee-app-2765a.cloudfunctions.net/sendEmail';
+
+                print('Sending email...');
+
+                try {
+                  var response = await http.post(
+                    Uri.parse('https://jsonplaceholder.typicode.com/albums'),
+                    headers: <String, String>{
+                      'Content-Type': 'application/json; charset=UTF-8',
+                    },
+                    body: jsonEncode(<String, String>{
+                      'subject': "This is a test email",
+                      'text': 'This is a test email from the website. Please ignore this email.',
+                    }),
+                  );
+
+                  if (response.statusCode == 200) {
+                    // Request successful
+                    print('Email sent successfully');
+                  } else {
+                    // Request failed
+                    print('Failed to send email, status code: ${response.statusCode}');
+                  }
+                } catch (e) {
+                  print('Failed to send email');
+                  print(e);
+                }
+              },
               child: Text('Send', style: TextStyle(color: Colors.white, fontSize: 20)),
             ),
           ),

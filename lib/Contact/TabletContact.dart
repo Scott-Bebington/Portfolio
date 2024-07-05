@@ -42,21 +42,18 @@ class _TabletContactState extends State<TabletContact> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextButton(
-                onPressed: () {},
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.email,
-                      color: navbarVariables.primaryColor,
-                    ),
-                    SizedBox(width: 10),
-                    Text(
-                      'scottbebington@gmail.com',
-                      style: TextStyle(fontSize: 20, color: navbarVariables.primaryColor),
-                    ),
-                  ],
-                ),
+              Row(
+                children: [
+                  Icon(
+                    Icons.email,
+                    color: navbarVariables.primaryColor,
+                  ),
+                  SizedBox(width: 10),
+                  Text(
+                    'scottbebington@gmail.com',
+                    style: TextStyle(fontSize: 20, color: navbarVariables.primaryColor),
+                  ),
+                ],
               ),
               SizedBox(width: 20),
               Container(
@@ -65,45 +62,49 @@ class _TabletContactState extends State<TabletContact> {
                 color: Colors.grey,
               ),
               SizedBox(width: 20),
-              TextButton(
-                onPressed: () {},
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.phone,
-                      color: navbarVariables.primaryColor,
-                    ),
-                    SizedBox(width: 10),
-                    Text(
-                      '+ 27 71 608 9080',
-                      style: TextStyle(fontSize: 20, color: navbarVariables.primaryColor),
-                    ),
-                  ],
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.phone,
+                    color: navbarVariables.primaryColor,
+                  ),
+                  SizedBox(width: 10),
+                  Text(
+                    '+ 27 71 608 9080',
+                    style: TextStyle(fontSize: 20, color: navbarVariables.primaryColor),
+                  ),
+                ],
               ),
             ],
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  launchURL('https://www.instagram.com/scott_bebington/');
+                },
                 icon: Icon(FontAwesomeIcons.instagram, color: navbarVariables.primaryColor),
               ),
               SizedBox(width: 10),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  launchURL('https://www.linkedin.com/in/scott-bebington/');
+                },
                 icon: Icon(FontAwesomeIcons.linkedin, color: navbarVariables.primaryColor),
               ),
               SizedBox(width: 10),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  launchURL('https://github.com/Scott-Bebington');
+                },
                 icon: Icon(FontAwesomeIcons.github, color: navbarVariables.primaryColor),
               ),
               SizedBox(width: 10),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  launchURL('https://wa.me/27716089080');
+                },
                 icon: Icon(FontAwesomeIcons.whatsapp, color: navbarVariables.primaryColor),
               ),
             ],

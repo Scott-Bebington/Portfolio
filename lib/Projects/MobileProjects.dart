@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:myportfolio/GlobalVariables.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class MobileProjects extends StatefulWidget {
@@ -14,31 +13,11 @@ class MobileProjects extends StatefulWidget {
 }
 
 class _MobileProjectsState extends State<MobileProjects> {
-  bool _isMounted = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _isMounted = true;
-  }
-
-  @override
-  void dispose() {
-    _isMounted = false;
-    super.dispose();
-  }
-
   String getUrlType(String Url) {
     if (Url.contains('.svg')) {
       return 'svg';
     } else {
       return 'png';
-    }
-  }
-
-  void launchURL(String url) async {
-    if (!await launchUrl(Uri.parse(url))) {
-      print('Could not launch $url');
     }
   }
 
