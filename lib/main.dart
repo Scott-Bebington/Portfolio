@@ -2,12 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:myportfolio/About/About.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:myportfolio/Contact/ContactMe.dart';
 import 'package:myportfolio/GlobalVariables.dart';
-import 'package:myportfolio/Homepage/Homepage.dart';
 import 'package:myportfolio/Navbar/Navbar.dart';
-import 'package:myportfolio/Projects/Projects.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -15,6 +13,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await dotenv.load();
   runApp(MyApp());
 }
 
@@ -60,9 +59,9 @@ class _PortfolioState extends State<Portfolio> {
           ListView(
             controller: navbarVariables.scrollController,
             children: [
-              Homepage(),
-              AboutMe(),
-              Projects(),
+              // Homepage(),
+              // AboutMe(),
+              // Projects(),
               Contact(),
             ],
           ),

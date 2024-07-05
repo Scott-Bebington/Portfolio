@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_social_button/flutter_social_button.dart';
 import 'package:myportfolio/GlobalVariables.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
+import 'package:emailjs/emailjs.dart' as emailjs;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class DesktopContact extends StatefulWidget {
   const DesktopContact({super.key});
@@ -18,6 +18,18 @@ class _DesktopContactState extends State<DesktopContact> {
   TextEditingController subjectController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
+
+  String sendText = 'Send';
+
+  void _showSnackBar(String message, bool sucess) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        backgroundColor: sucess ? Colors.green : Colors.red,
+        content: Center(child: Text(message)),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -245,35 +257,62 @@ class _DesktopContactState extends State<DesktopContact> {
                 backgroundColor: WidgetStateProperty.all(navbarVariables.primaryColor),
               ),
               onPressed: () async {
-                var url = 'https://us-central1-seattle-coffee-app-2765a.cloudfunctions.net/sendEmail';
+                setState(() {
+                  sendText = 'Sending...';
+                });
 
-                print('Sending email...');
+                if (nameController.text.isEmpty || subjectController.text.isEmpty || emailController.text.isEmpty || phoneController.text.isEmpty) {
+                  setState(() {
+                    sendText = 'Send';
+                  });
+                  _showSnackBar("Please fill in all fields", false);
+                  return;
+                }
+
+                if (!RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$').hasMatch(emailController.text)) {
+                  setState(() {
+                    sendText = 'Send';
+                  });
+                  _showSnackBar("Invalid email address", false);
+                  return;
+                }
+
+                Map<String, dynamic> templateParams = {
+                  'from_name': nameController.text,
+                  'to_name': 'Scott Bebington',
+                  'message': subjectController.text,
+                  'reply_to': emailController.text,
+                  'from_phone': phoneController.text,
+                };
 
                 try {
-                  var response = await http.post(
-                    Uri.parse('https://jsonplaceholder.typicode.com/albums'),
-                    headers: <String, String>{
-                      'Content-Type': 'application/json; charset=UTF-8',
-                    },
-                    body: jsonEncode(<String, String>{
-                      'subject': "This is a test email",
-                      'text': 'This is a test email from the website. Please ignore this email.',
-                    }),
+                  await emailjs.send(
+                    dotenv.env['EMAILJS_SERVICE_KEY']!,
+                    dotenv.env['EMAILJS_TEMPLATE_KEY']!,
+                    templateParams,
+                    emailjs.Options(
+                      publicKey: dotenv.env['EMAILJS_PUBLIC_KEY']!,
+                      privateKey: dotenv.env['EMAILJS_PRIVATE_KEY']!,
+                    ),
                   );
 
-                  if (response.statusCode == 200) {
-                    // Request successful
-                    print('Email sent successfully');
-                  } else {
-                    // Request failed
-                    print('Failed to send email, status code: ${response.statusCode}');
-                  }
+                  setState(() {
+                    sendText = 'Send';
+                    nameController.clear();
+                    subjectController.clear();
+                    emailController.clear();
+                    phoneController.clear();
+                  });
+                  _showSnackBar("Email sent successfully", true);
                 } catch (e) {
-                  print('Failed to send email');
                   print(e);
+                  setState(() {
+                    sendText = 'Send';
+                  });
+                  _showSnackBar("Email failed to send", false);
                 }
               },
-              child: Text('Send', style: TextStyle(color: Colors.white, fontSize: 20)),
+              child: Text(sendText, style: TextStyle(color: Colors.white, fontSize: 20)),
             ),
           ),
         ],

@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_social_button/flutter_social_button.dart';
 import 'package:myportfolio/GlobalVariables.dart';
+import 'package:emailjs/emailjs.dart' as emailjs;
 
 class TabletContact extends StatefulWidget {
   const TabletContact({super.key});
@@ -16,6 +18,18 @@ class _TabletContactState extends State<TabletContact> {
   TextEditingController subjectController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
+
+  String sendText = 'Send';
+
+  void _showSnackBar(String message, bool sucess) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        backgroundColor: sucess ? Colors.green : Colors.red,
+        content: Center(child: Text(message)),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -235,7 +249,62 @@ class _TabletContactState extends State<TabletContact> {
               style: ButtonStyle(
                 backgroundColor: WidgetStateProperty.all(navbarVariables.primaryColor),
               ),
-              onPressed: () {},
+              onPressed: () async {
+                setState(() {
+                  sendText = 'Sending...';
+                });
+
+                if (nameController.text.isEmpty || subjectController.text.isEmpty || emailController.text.isEmpty || phoneController.text.isEmpty) {
+                  setState(() {
+                    sendText = 'Send';
+                  });
+                  _showSnackBar("Please fill in all fields", false);
+                  return;
+                }
+
+                if (!RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$').hasMatch(emailController.text)) {
+                  setState(() {
+                    sendText = 'Send';
+                  });
+                  _showSnackBar("Invalid email address", false);
+                  return;
+                }
+
+                Map<String, dynamic> templateParams = {
+                  'from_name': nameController.text,
+                  'to_name': 'Scott Bebington',
+                  'message': subjectController.text,
+                  'reply_to': emailController.text,
+                  'from_phone': phoneController.text,
+                };
+
+                try {
+                  await emailjs.send(
+                    dotenv.env['EMAILJS_SERVICE_KEY']!,
+                    dotenv.env['EMAILJS_TEMPLATE_KEY']!,
+                    templateParams,
+                    emailjs.Options(
+                      publicKey: dotenv.env['EMAILJS_PUBLIC_KEY']!,
+                      privateKey: dotenv.env['EMAILJS_PRIVATE_KEY']!,
+                    ),
+                  );
+
+                  setState(() {
+                    sendText = 'Send';
+                    nameController.clear();
+                    subjectController.clear();
+                    emailController.clear();
+                    phoneController.clear();
+                  });
+                  _showSnackBar("Email sent successfully", true);
+                } catch (e) {
+                  print(e);
+                  setState(() {
+                    sendText = 'Send';
+                  });
+                  _showSnackBar("Email failed to send", false);
+                }
+              },
               child: Text('Send', style: TextStyle(color: Colors.white, fontSize: 20)),
             ),
           ),

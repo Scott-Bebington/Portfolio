@@ -1,12 +1,14 @@
+// ignore_for_file: file_names, prefer_const_constructors
 
+import 'package:dotenv/dotenv.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 void launchURL(String url) async {
-    if (!await launchUrl(Uri.parse(url))) {
-      print('Could not launch $url');
-    }
+  if (!await launchUrl(Uri.parse(url))) {
+    print('Could not launch $url');
   }
+}
 
 class NavbarVariables {
   double xOffSet = 10;
@@ -22,3 +24,9 @@ class NavbarVariables {
 }
 
 NavbarVariables navbarVariables = NavbarVariables();
+
+class EnvironmentVariables {
+  final env=DotEnv(includePlatformEnvironment: true)..load();
+}
+
+EnvironmentVariables envVariables = EnvironmentVariables();
