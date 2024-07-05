@@ -229,6 +229,7 @@ class _MobileContactState extends State<MobileContact> {
                 backgroundColor: WidgetStateProperty.all(navbarVariables.primaryColor),
               ),
               onPressed: () async {
+                await dotenv.load();
                 setState(() {
                   sendText = 'Sending...';
                 });
