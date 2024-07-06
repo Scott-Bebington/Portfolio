@@ -42,7 +42,7 @@ class ContactVariables {
     };
 
     try {
-      await dotenv.load(fileName: ".env.local");
+      
       await emailjs.send(
         dotenv.env['EMAILJS_SERVICE_KEY']!,
         dotenv.env['EMAILJS_TEMPLATE_KEY']!,

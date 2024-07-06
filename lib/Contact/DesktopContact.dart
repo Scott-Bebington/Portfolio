@@ -25,6 +25,19 @@ class _DesktopContactState extends State<DesktopContact> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    try {
+      const String serviceKey = String.fromEnvironment('EMAILJS_SERVICE_KEY');
+      print('Sevice key: $serviceKey');
+    } catch (e) {
+      print(e);
+    }
+
+    print("Testing");
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       key: navbarVariables.contactKey,

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:myportfolio/About/About.dart';
 import 'package:myportfolio/Contact/ContactMe.dart';
 import 'package:myportfolio/GlobalVariables.dart';
@@ -15,6 +16,8 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  
+
   runApp(MyApp());
 }
 
@@ -45,9 +48,9 @@ class Portfolio extends StatelessWidget {
             controller: navbarVariables.scrollController,
             child: Column(
               children: [
-                // Homepage(),
-                // AboutMe(),
-                // Projects(),
+                Homepage(),
+                AboutMe(),
+                Projects(),
                 Contact(),
               ],
             ),
