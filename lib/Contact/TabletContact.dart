@@ -1,10 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_social_button/flutter_social_button.dart';
+import 'package:myportfolio/Contact/ContactMe.dart';
 import 'package:myportfolio/GlobalVariables.dart';
-import 'package:emailjs/emailjs.dart' as emailjs;
 
 class TabletContact extends StatefulWidget {
   const TabletContact({super.key});
@@ -14,11 +13,6 @@ class TabletContact extends StatefulWidget {
 }
 
 class _TabletContactState extends State<TabletContact> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController subjectController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
-
   String sendText = 'Send';
 
   void _showSnackBar(String message, bool sucess) {
@@ -33,11 +27,12 @@ class _TabletContactState extends State<TabletContact> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      key: navbarVariables.contactKey,
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.all(50),
+      padding: EdgeInsets.only(top: 75, left: 50, right: 50, bottom: 50),
       decoration: BoxDecoration(
-        color: navbarVariables.backgroundColor,
+        color: backgroundColor,
         border: Border(
           bottom: BorderSide(
             color: Colors.black,
@@ -50,7 +45,7 @@ class _TabletContactState extends State<TabletContact> {
         children: [
           Text(
             'Get in touch',
-            style: TextStyle(fontSize: 75, fontWeight: FontWeight.bold, color: navbarVariables.primaryColor),
+            style: TextStyle(fontSize: tabletVariables.HeadingTextSize, fontWeight: FontWeight.bold, color: primaryColor),
           ),
           SizedBox(height: 20),
           Row(
@@ -60,12 +55,12 @@ class _TabletContactState extends State<TabletContact> {
                 children: [
                   Icon(
                     Icons.email,
-                    color: navbarVariables.primaryColor,
+                    color: primaryColor,
                   ),
                   SizedBox(width: 10),
                   Text(
                     'scottbebington@gmail.com',
-                    style: TextStyle(fontSize: 20, color: navbarVariables.primaryColor),
+                    style: TextStyle(fontSize: tabletVariables.BodyTextSize, color: primaryColor),
                   ),
                 ],
               ),
@@ -81,52 +76,53 @@ class _TabletContactState extends State<TabletContact> {
                 children: [
                   Icon(
                     Icons.phone,
-                    color: navbarVariables.primaryColor,
+                    color: primaryColor,
                   ),
                   SizedBox(width: 10),
                   Text(
                     '+ 27 71 608 9080',
-                    style: TextStyle(fontSize: 20, color: navbarVariables.primaryColor),
+                    style: TextStyle(fontSize: tabletVariables.BodyTextSize, color: primaryColor),
                   ),
                 ],
               ),
             ],
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              IconButton(
-                onPressed: () {
-                  launchURL('https://www.instagram.com/scott_bebington/');
-                },
-                icon: Icon(FontAwesomeIcons.instagram, color: navbarVariables.primaryColor),
-              ),
+              // IconButton(
+              //   onPressed: () {
+              //     launchURL('https://www.instagram.com/scott_bebington/');
+              //   },
+              //   icon: Icon(FontAwesomeIcons.instagram, color: primaryColor),
+              // ),
               SizedBox(width: 10),
               IconButton(
                 onPressed: () {
                   launchURL('https://www.linkedin.com/in/scott-bebington/');
                 },
-                icon: Icon(FontAwesomeIcons.linkedin, color: navbarVariables.primaryColor),
+                icon: Icon(FontAwesomeIcons.linkedin, color: primaryColor),
               ),
               SizedBox(width: 10),
               IconButton(
                 onPressed: () {
                   launchURL('https://github.com/Scott-Bebington');
                 },
-                icon: Icon(FontAwesomeIcons.github, color: navbarVariables.primaryColor),
+                icon: Icon(FontAwesomeIcons.github, color: primaryColor),
               ),
               SizedBox(width: 10),
               IconButton(
                 onPressed: () {
                   launchURL('https://wa.me/27716089080');
                 },
-                icon: Icon(FontAwesomeIcons.whatsapp, color: navbarVariables.primaryColor),
+                icon: Icon(FontAwesomeIcons.whatsapp, color: primaryColor),
               ),
             ],
           ),
           SizedBox(height: 75),
           Text(
             'Send me a message',
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: navbarVariables.primaryColor),
+            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: primaryColor),
           ),
           SizedBox(height: 20),
           Row(
@@ -140,22 +136,22 @@ class _TabletContactState extends State<TabletContact> {
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.4,
                       child: TextField(
-                        controller: nameController,
+                        controller: ContactVariables.nameController,
                         decoration: InputDecoration(
                           labelText: "Name",
                           labelStyle: TextStyle(
-                            color: navbarVariables.secondaryColor,
+                            color: secondaryColor,
                           ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                              color: navbarVariables.secondaryColor,
+                              color: secondaryColor,
                             ),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                              color: navbarVariables.secondaryColor,
+                              color: secondaryColor,
                             ),
                           ),
                         ),
@@ -164,22 +160,22 @@ class _TabletContactState extends State<TabletContact> {
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.4,
                       child: TextField(
-                        controller: emailController,
+                        controller: ContactVariables.emailController,
                         decoration: InputDecoration(
                           labelText: "Email",
                           labelStyle: TextStyle(
-                            color: navbarVariables.secondaryColor,
+                            color: secondaryColor,
                           ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                              color: navbarVariables.secondaryColor,
+                              color: secondaryColor,
                             ),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                              color: navbarVariables.secondaryColor,
+                              color: secondaryColor,
                             ),
                           ),
                         ),
@@ -188,22 +184,22 @@ class _TabletContactState extends State<TabletContact> {
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.4,
                       child: TextField(
-                        controller: phoneController,
+                        controller: ContactVariables.phoneController,
                         decoration: InputDecoration(
                           labelText: "Phone",
                           labelStyle: TextStyle(
-                            color: navbarVariables.secondaryColor,
+                            color: secondaryColor,
                           ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                              color: navbarVariables.secondaryColor,
+                              color: secondaryColor,
                             ),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                              color: navbarVariables.secondaryColor,
+                              color: secondaryColor,
                             ),
                           ),
                         ),
@@ -216,22 +212,22 @@ class _TabletContactState extends State<TabletContact> {
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.4,
                 child: TextField(
-                  controller: subjectController,
+                  controller: ContactVariables.subjectController,
                   decoration: InputDecoration(
                     labelText: "Message",
                     labelStyle: TextStyle(
-                      color: navbarVariables.secondaryColor,
+                      color: secondaryColor,
                     ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide: BorderSide(
-                        color: navbarVariables.secondaryColor,
+                        color: secondaryColor,
                       ),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide: BorderSide(
-                        color: navbarVariables.secondaryColor,
+                        color: secondaryColor,
                       ),
                     ),
                   ),
@@ -247,66 +243,34 @@ class _TabletContactState extends State<TabletContact> {
             height: 50,
             child: ElevatedButton(
               style: ButtonStyle(
-                backgroundColor: WidgetStateProperty.all(navbarVariables.primaryColor),
+                backgroundColor: WidgetStateProperty.all(primaryColor),
               ),
               onPressed: () async {
-                await dotenv.load();
-                setState(() {
-                  sendText = 'Sending...';
-                });
-
-                if (nameController.text.isEmpty || subjectController.text.isEmpty || emailController.text.isEmpty || phoneController.text.isEmpty) {
-                  setState(() {
-                    sendText = 'Send';
-                  });
+                if (!ContactVariables.checkControllersArentEmpty()) {
                   _showSnackBar("Please fill in all fields", false);
                   return;
                 }
 
-                if (!RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$').hasMatch(emailController.text)) {
-                  setState(() {
-                    sendText = 'Send';
-                  });
+                if (!ContactVariables.checkEmailRegex()) {
                   _showSnackBar("Invalid email address", false);
                   return;
                 }
 
-                Map<String, dynamic> templateParams = {
-                  'from_name': nameController.text,
-                  'to_name': 'Scott Bebington',
-                  'message': subjectController.text,
-                  'reply_to': emailController.text,
-                  'from_phone': phoneController.text,
-                };
+                setState(() {
+                  sendText = 'Sending...';
+                });
 
-                try {
-                  await emailjs.send(
-                    dotenv.env['EMAILJS_SERVICE_KEY']!,
-                    dotenv.env['EMAILJS_TEMPLATE_KEY']!,
-                    templateParams,
-                    emailjs.Options(
-                      publicKey: dotenv.env['EMAILJS_PUBLIC_KEY']!,
-                      privateKey: dotenv.env['EMAILJS_PRIVATE_KEY']!,
-                    ),
-                  );
-
-                  setState(() {
-                    sendText = 'Send';
-                    nameController.clear();
-                    subjectController.clear();
-                    emailController.clear();
-                    phoneController.clear();
-                  });
-                  _showSnackBar("Email sent successfully", true);
-                } catch (e) {
-                  print(e);
-                  setState(() {
-                    sendText = 'Send';
-                  });
+                if (await ContactVariables.sendEmail()) {
+                  _showSnackBar("Email sent sucessfully", true);
+                } else {
                   _showSnackBar("Email failed to send", false);
                 }
+
+                setState(() {
+                  sendText = 'Send';
+                });
               },
-              child: Text('Send', style: TextStyle(color: Colors.white, fontSize: 20)),
+              child: Text(sendText, style: TextStyle(color: Colors.white, fontSize: tabletVariables.BodyTextSize)),
             ),
           ),
         ],

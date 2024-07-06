@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:myportfolio/Projects/DesktopProjects.dart';
 import 'package:myportfolio/Projects/MobileProjects.dart';
 import 'package:myportfolio/GlobalVariables.dart';
+import 'package:myportfolio/Projects/TabletProjects.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class Projects extends StatefulWidget {
@@ -26,9 +27,12 @@ class _ProjectsState extends State<Projects> {
       },
       child: LayoutBuilder(
         builder: (context, constraints) {
-          if (constraints.maxWidth >= 600) {
+          if (constraints.maxWidth >= 1000) {
             return DesktopProjects();
-          } else {
+          } else if (constraints.maxWidth >= 600) {
+            return TabletProjects();
+          }
+          else {
             return MobileProjects();
           }
         },

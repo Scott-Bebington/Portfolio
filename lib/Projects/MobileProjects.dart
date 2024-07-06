@@ -59,12 +59,12 @@ class _MobileProjectsState extends State<MobileProjects> {
               SizedBox(height: 10),
               Text(
                 Name,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: navbarVariables.primaryColor),
+                style: TextStyle(fontSize: mobileVariables.cardHeadingTextSize, fontWeight: FontWeight.bold, color: primaryColor),
               ),
               SizedBox(height: 10),
               Text(
                 ApplicationType,
-                style: TextStyle(fontSize: 16, color: navbarVariables.secondaryColor),
+                style: TextStyle(fontSize: mobileVariables.BodyTextSize, color: secondaryColor),
               ),
             ],
           ),
@@ -76,10 +76,11 @@ class _MobileProjectsState extends State<MobileProjects> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height,
+      key: navbarVariables.projectsKey,
+      constraints: BoxConstraints(minHeight: MediaQuery.of(context).size.height),
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
-        color: navbarVariables.backgroundColor,
+        color: backgroundColor,
         border: Border(
           bottom: BorderSide(
             color: Colors.black,
@@ -87,21 +88,22 @@ class _MobileProjectsState extends State<MobileProjects> {
           ),
         ),
       ),
-      padding: EdgeInsets.only(top: 75, left: 50, right: 50, bottom: 50),
+      padding: EdgeInsets.only(top: 75, left: 10, right: 10, bottom: 10),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Column(
             children: [
               Text(
-                'My Projects',
-                style: TextStyle(fontSize: 75, fontWeight: FontWeight.bold, color: navbarVariables.primaryColor),
+                'Handcrafted Websites',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: mobileVariables.HeadingTextSize, fontWeight: FontWeight.bold, color: primaryColor),
               ),
               Text(
                 'Showcasing Innovation in Web Development',
                 style: TextStyle(
-                  fontSize: 20,
-                  color: navbarVariables.secondaryColor,
+                  fontSize: mobileVariables.BodyTextSize,
+                  color: secondaryColor,
                 ),
               ),
             ],
@@ -132,6 +134,7 @@ class _MobileProjectsState extends State<MobileProjects> {
               ),
             ),
           ),
+          Container()
 
           // Wrap(
           //   spacing: 20,

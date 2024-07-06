@@ -15,10 +15,11 @@ class _MobileHomepageState extends State<MobileHomepage> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      key: navbarVariables.homeKey,
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
-        color: navbarVariables.backgroundColor,
+        color: backgroundColor,
         border: Border(
           bottom: BorderSide(
             color: Colors.black,
@@ -39,7 +40,7 @@ class _MobileHomepageState extends State<MobileHomepage> {
                   width: MediaQuery.of(context).size.width - 20,
                   child: Text(
                     'Unique websites for your unique business',
-                    style: TextStyle(fontSize: 60, fontWeight: FontWeight.bold, color: navbarVariables.primaryColor),
+                    style: TextStyle(fontSize: mobileVariables.HeadingTextSize, fontWeight: FontWeight.bold, color: primaryColor),
                   ),
                 ),
                 SizedBox(
@@ -47,15 +48,15 @@ class _MobileHomepageState extends State<MobileHomepage> {
                   child: Text(
                     'Crafting websites that are tailored to your business needs.',
                     style: TextStyle(
-                      fontSize: 20,
-                      color: navbarVariables.secondaryColor,
+                      fontSize: mobileVariables.BodyTextSize,
+                      color: secondaryColor,
                     ),
                   ),
                 ),
                 SizedBox(height: 20),
                 ElevatedButton(
                   style: ButtonStyle(
-                    backgroundColor: WidgetStateProperty.all(navbarVariables.primaryColor),
+                    backgroundColor: WidgetStateProperty.all(primaryColor),
                   ),
                   onPressed: () {
                     navbarVariables.scrollController.animateTo(
@@ -74,32 +75,32 @@ class _MobileHomepageState extends State<MobileHomepage> {
             left: 10,
             child: Row(
               children: [
-                IconButton(
-                  onPressed: () {
-                    launchURL('https://www.instagram.com/scott_bebington/');
-                  },
-                  icon: Icon(FontAwesomeIcons.instagram, color: navbarVariables.primaryColor),
-                ),
+                // IconButton(
+                //   onPressed: () {
+                //     launchURL('https://www.instagram.com/scott_bebington/');
+                //   },
+                //   icon: Icon(FontAwesomeIcons.instagram, color: navbarVariables.primaryColor),
+                // ),
                 SizedBox(width: 10),
                 IconButton(
                   onPressed: () {
                     launchURL('https://www.linkedin.com/in/scott-bebington/');
                   },
-                  icon: Icon(FontAwesomeIcons.linkedin, color: navbarVariables.primaryColor),
+                  icon: Icon(FontAwesomeIcons.linkedin, color: primaryColor),
                 ),
                 SizedBox(width: 10),
                 IconButton(
                   onPressed: () {
                     launchURL('https://github.com/Scott-Bebington');
                   },
-                  icon: Icon(FontAwesomeIcons.github, color: navbarVariables.primaryColor),
+                  icon: Icon(FontAwesomeIcons.github, color: primaryColor),
                 ),
                 SizedBox(width: 10),
                 IconButton(
                   onPressed: () {
                     launchURL('https://wa.me/27716089080');
                   },
-                  icon: Icon(FontAwesomeIcons.whatsapp, color: navbarVariables.primaryColor),
+                  icon: Icon(FontAwesomeIcons.whatsapp, color: primaryColor),
                 ),
               ],
             ),
@@ -125,7 +126,7 @@ class _MobileHomepageState extends State<MobileHomepage> {
               width: MediaQuery.of(context).size.width * 0.5 - 2,
               height: MediaQuery.of(context).size.width * 0.5 - 2,
               decoration: BoxDecoration(
-                color: navbarVariables.backgroundColor,
+                color: backgroundColor,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(1000),
                 ),
@@ -139,7 +140,7 @@ class _MobileHomepageState extends State<MobileHomepage> {
               width: MediaQuery.of(context).size.width * 0.45,
               height: MediaQuery.of(context).size.width * 0.45,
               decoration: BoxDecoration(
-                color: navbarVariables.primaryColor,
+                color: primaryColor,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(1000),
                 ),
@@ -153,7 +154,7 @@ class _MobileHomepageState extends State<MobileHomepage> {
               width: MediaQuery.of(context).size.width * 0.45 - 5,
               height: MediaQuery.of(context).size.width * 0.45 - 5,
               decoration: BoxDecoration(
-                color: navbarVariables.backgroundColor,
+                color: backgroundColor,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(1000),
                 ),

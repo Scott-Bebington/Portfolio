@@ -27,44 +27,30 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Scott Bebington Portfolio',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
       home: Portfolio(),
     );
   }
 }
 
-class Portfolio extends StatefulWidget {
+class Portfolio extends StatelessWidget {
   const Portfolio({super.key});
-
-  @override
-  State<Portfolio> createState() => _PortfolioState();
-}
-
-class _PortfolioState extends State<Portfolio> {
-  @override
-  void initState() {
-    super.initState();
-    NavbarVariables().valueChanged.addListener(() {
-      setState(() {});
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backgroundColor,
       body: Stack(
         children: [
-          ListView(
+          SingleChildScrollView(
             controller: navbarVariables.scrollController,
-            children: [
-              Homepage(),
-              AboutMe(),
-              Projects(),
-              Contact(),
-            ],
+            child: Column(
+              children: [
+                // Homepage(),
+                // AboutMe(),
+                // Projects(),
+                Contact(),
+              ],
+            ),
           ),
           Navbar(),
         ],

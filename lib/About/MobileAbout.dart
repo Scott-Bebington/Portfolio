@@ -15,10 +15,11 @@ class _MobileAboutState extends State<MobileAbout> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height,
+      key: navbarVariables.aboutKey,
+      constraints: BoxConstraints(minHeight: MediaQuery.of(context).size.height),
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
-        color: navbarVariables.backgroundColor,
+        color: backgroundColor,
         border: Border(
           bottom: BorderSide(
             color: Colors.black,
@@ -32,18 +33,20 @@ class _MobileAboutState extends State<MobileAbout> {
         children: [
           Row(
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(20), // Clip the image to the rounded shape
-                child: Image.asset(
-                  'assets/images/MyPhoto.JPG',
-                  fit: BoxFit.fitHeight,
-                  height: 75,
+              if (MediaQuery.of(context).size.width > 360) ...[
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(20), // Clip the image to the rounded shape
+                  child: Image.asset(
+                    'assets/images/MyPhoto.JPG',
+                    fit: BoxFit.fitHeight,
+                    height: 75,
+                  ),
                 ),
-              ),
-              SizedBox(width: 20),
+                SizedBox(width: 20),
+              ],
               Text(
                 'About Me',
-                style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, color: navbarVariables.primaryColor),
+                style: TextStyle(fontSize: mobileVariables.SubHeadingTextSize, fontWeight: FontWeight.bold, color: primaryColor),
               ),
             ],
           ),
@@ -54,32 +57,34 @@ class _MobileAboutState extends State<MobileAbout> {
               Text(
                 "My name is Scott Bebington, I am a passionate software developer specializing in full-stack web and app development. "
                 "I graduated from the University of Pretoria in South Africa with a degree in Computer Science.",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+                style: TextStyle(fontSize: mobileVariables.BodyTextSize, fontWeight: FontWeight.bold, color: Colors.black),
               ),
               SizedBox(height: 20),
               Divider(),
               SizedBox(height: 20),
               Row(
                 children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      FontAwesomeIcons.github,
-                      color: navbarVariables.primaryColor,
-                      size: 60,
+                  if (MediaQuery.of(context).size.width > 360) ...[
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        FontAwesomeIcons.github,
+                        color: primaryColor,
+                        size: 60,
+                      ),
                     ),
-                  ),
-                  SizedBox(width: 20),
+                    SizedBox(width: 20),
+                  ],
                   Text(
                     'Background',
-                    style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, color: navbarVariables.primaryColor),
+                    style: TextStyle(fontSize: mobileVariables.SubHeadingTextSize, fontWeight: FontWeight.bold, color: primaryColor),
                   ),
                 ],
               ),
               Text(
                 "I have experience in designing and developing robust web applications, handling both frontend and backend aspects."
                 "My technical skills include proficiency in languages such as JavaScript, Dart, Python and C++, and frameworks like React.js, Node.js, and Flutter.",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+                style: TextStyle(fontSize: mobileVariables.BodyTextSize, fontWeight: FontWeight.bold, color: Colors.black),
               ),
             ],
           ),

@@ -123,136 +123,124 @@ class _MobileNavbarState extends State<MobileNavbar> with SingleTickerProviderSt
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Positioned(
-          top: initialYOffset,
-          left: initialXOffset,
-          child: IconButton(
-            icon: Icon(
-              _isExpanded ? Icons.close : Icons.menu,
-              color: navbarVariables.primaryColor,
-            ),
-            onPressed: _startAnimation,
-          ),
-        ),
-        if (_showFirstButton)
-          AnimatedBuilder(
-            animation: _firstAnimation,
-            builder: (context, child) {
-              return Positioned(
-                top: initialYOffset,
-                left: initialXOffset + _firstAnimation.value,
-                child: Tooltip(
-                  message: 'Home',
-                  child: IconButton(
-                    icon: Icon(
-                      Icons.home_outlined,
-                      color: navbarVariables.primaryColor,
-                    ),
-                    onPressed: () {
-                      navbarVariables.scrollController.animateTo(
-                        0,
-                        duration: Duration(milliseconds: 500),
-                        curve: Curves.easeInOut,
-                      );
-                    },
-                  ),
-                ),
-              );
-            },
-          ),
-        if (_showSecondButton)
-          AnimatedBuilder(
-            animation: _secondAnimation,
-            builder: (context, child) {
-              return Positioned(
-                top: initialYOffset,
-                left: initialXOffset + _secondAnimation.value,
-                child: Tooltip(
-                  message: 'About me',
-                  child: IconButton(
-                    icon: Icon(
-                      Icons.person_outline,
-                      color: navbarVariables.primaryColor,
-                    ),
-                    onPressed: () {
-                      navbarVariables.scrollController.animateTo(
-                        MediaQuery.of(context).size.height,
-                        duration: Duration(milliseconds: 500),
-                        curve: Curves.easeInOut,
-                      );
-                    },
-                  ),
-                ),
-              );
-            },
-          ),
-        if (_showThirdButton)
-          AnimatedBuilder(
-            animation: _thirdAnimation,
-            builder: (context, child) {
-              return Positioned(
-                top: initialYOffset,
-                left: initialXOffset + _thirdAnimation.value,
-                child: Tooltip(
-                  message: 'Projects',
-                  child: IconButton(
-                    icon: Icon(
-                      Icons.web,
-                      color: navbarVariables.primaryColor,
-                    ),
-                    onPressed: () {
-                      navbarVariables.scrollController.animateTo(
-                        MediaQuery.of(context).size.height * 2,
-                        duration: Duration(milliseconds: 500),
-                        curve: Curves.easeInOut,
-                      );
-                    },
-                  ),
-                ),
-              );
-            },
-          ),
-        if (_showFourthButton)
-          AnimatedBuilder(
-            animation: _fourthAnimation,
-            builder: (context, child) {
-              return Positioned(
-                top: initialYOffset,
-                left: initialXOffset + _fourthAnimation.value,
-                child: Tooltip(
-                  message: 'Contact me',
-                  child: IconButton(
-                    icon: Icon(
-                      Icons.email_outlined,
-                      color: navbarVariables.primaryColor,
-                    ),
-                    onPressed: () {
-                      navbarVariables.scrollController.animateTo(
-                        MediaQuery.of(context).size.height * 3,
-                        duration: Duration(milliseconds: 500),
-                        curve: Curves.easeInOut,
-                      );
-                    },
-                  ),
-                ),
-              );
-            },
-          ),
-
-        Positioned(
-          top: 10,
-          right: 10,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(100),
-            child: Image.asset(
-              'assets/images/Logo.jpeg',
-              height: 40,
+    return Container(
+      color: backgroundColor,
+      height: 60,
+      child: Stack(
+        children: [
+          Positioned(
+            top: initialYOffset,
+            left: initialXOffset,
+            child: IconButton(
+              icon: Icon(
+                _isExpanded ? Icons.close : Icons.menu,
+                color: primaryColor,
+              ),
+              onPressed: _startAnimation,
             ),
           ),
-        ),
-      ],
+          if (_showFirstButton)
+            AnimatedBuilder(
+              animation: _firstAnimation,
+              builder: (context, child) {
+                return Positioned(
+                  top: initialYOffset,
+                  left: initialXOffset + _firstAnimation.value,
+                  child: Tooltip(
+                    message: 'Home',
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.home_outlined,
+                        color: primaryColor,
+                      ),
+                      onPressed: () {
+                        navbarVariables.scrollToSection(navbarVariables.homeKey);
+                      },
+                    ),
+                  ),
+                );
+              },
+            ),
+          if (_showSecondButton)
+            AnimatedBuilder(
+              animation: _secondAnimation,
+              builder: (context, child) {
+                return Positioned(
+                  top: initialYOffset,
+                  left: initialXOffset + _secondAnimation.value,
+                  child: Tooltip(
+                    message: 'About me',
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.person_outline,
+                        color: primaryColor,
+                      ),
+                      onPressed: () {
+                        navbarVariables.scrollToSection(navbarVariables.aboutKey);
+                      },
+                    ),
+                  ),
+                );
+              },
+            ),
+          if (_showThirdButton)
+            AnimatedBuilder(
+              animation: _thirdAnimation,
+              builder: (context, child) {
+                return Positioned(
+                  top: initialYOffset,
+                  left: initialXOffset + _thirdAnimation.value,
+                  child: Tooltip(
+                    message: 'Projects',
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.web,
+                        color: primaryColor,
+                      ),
+                      onPressed: () {
+                        navbarVariables.scrollToSection(navbarVariables.projectsKey);
+                      },
+                    ),
+                  ),
+                );
+              },
+            ),
+          if (_showFourthButton)
+            AnimatedBuilder(
+              animation: _fourthAnimation,
+              builder: (context, child) {
+                return Positioned(
+                  top: initialYOffset,
+                  left: initialXOffset + _fourthAnimation.value,
+                  child: Tooltip(
+                    message: 'Contact me',
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.email_outlined,
+                        color: primaryColor,
+                      ),
+                      onPressed: () {
+                        navbarVariables.scrollToSection(navbarVariables.contactKey);
+                      },
+                    ),
+                  ),
+                );
+              },
+            ),
+      
+          Positioned(
+            top: 10,
+            right: 10,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(100),
+              child: Image.asset(
+                'assets/images/Logo.jpeg',
+                height: 40,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

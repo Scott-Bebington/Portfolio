@@ -14,10 +14,11 @@ class _DesktopAboutState extends State<DesktopAbout> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      key: navbarVariables.aboutKey,
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
-        color: navbarVariables.backgroundColor,
+        color: backgroundColor,
         border: Border(
           bottom: BorderSide(
             color: Colors.black,
@@ -48,24 +49,24 @@ class _DesktopAboutState extends State<DesktopAbout> {
                 children: [
                   Text(
                     'A Bit About Me',
-                    style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, color: navbarVariables.primaryColor),
+                    style: TextStyle(fontSize: desktopVariables.SubHeadingTextSize, fontWeight: FontWeight.bold, color: primaryColor),
                   ),
                   Text(
                     "My name is Scott Bebington, I am a passionate software developer specializing in full-stack web and app development. "
                     "I graduated from the University of Pretoria in South Africa with a degree in Computer Science.",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+                    style: TextStyle(fontSize: desktopVariables.BodyTextSize, fontWeight: FontWeight.bold, color: Colors.black),
                   ),
                   SizedBox(height: 20),
                   Divider(),
                   SizedBox(height: 20),
                   Text(
                     'Professional Background',
-                    style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, color: navbarVariables.primaryColor),
+                    style: TextStyle(fontSize: desktopVariables.SubHeadingTextSize, fontWeight: FontWeight.bold, color: primaryColor),
                   ),
                   Text(
                     "I have experience in designing and developing robust web and mobile applications, handling both frontend and backend aspects."
                     "My technical skills include proficiency in languages such as JavaScript, Dart, Python and C++, and frameworks like React.js, Node.js, and Flutter.",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+                    style: TextStyle(fontSize: desktopVariables.BodyTextSize, fontWeight: FontWeight.bold, color: Colors.black),
                   ),
                 ],
               ),

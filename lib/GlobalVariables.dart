@@ -10,6 +10,37 @@ void launchURL(String url) async {
   }
 }
 
+Color primaryColor = Color(0xff1d3557);
+Color secondaryColor = Color(0xffe63946);
+Color tertiaryColor = Color(0xffa8dadc);
+Color backgroundColor = Color.fromARGB(255, 233, 231, 231);
+
+class DesktopVariables {
+  final double HeadingTextSize = 75;
+  final double SubHeadingTextSize = 40;
+  final double cardHeadingTextSize = 30;
+  final double BodyTextSize = 20;
+}
+
+DesktopVariables desktopVariables = DesktopVariables();
+
+class TabletVariables {
+  final double HeadingTextSize = 60;
+  final double SubHeadingTextSize = 30;
+  final double BodyTextSize = 20;
+}
+
+TabletVariables tabletVariables = TabletVariables();
+
+class MobileVariables {
+  final double HeadingTextSize = 60;
+  final double SubHeadingTextSize = 30;
+  final double cardHeadingTextSize = 20;
+  final double BodyTextSize = 16;
+}
+
+MobileVariables mobileVariables = MobileVariables();
+
 class NavbarVariables {
   double xOffSet = 10;
   double yOffSet = 10;
@@ -17,16 +48,23 @@ class NavbarVariables {
 
   ValueNotifier<int> valueChanged = ValueNotifier<int>(0);
 
-  Color primaryColor = Color(0xff1d3557);
-  Color secondaryColor = Color(0xff457b9d);
-  Color tertiaryColor = Color(0xffa8dadc);
-  Color backgroundColor = Color.fromARGB(255, 233, 231, 231);
+  final GlobalKey homeKey = GlobalKey();
+  final GlobalKey aboutKey = GlobalKey();
+  final GlobalKey projectsKey = GlobalKey();
+  final GlobalKey contactKey = GlobalKey();
+
+  void scrollToSection(GlobalKey key) {
+    final context = key.currentContext;
+    if (context != null) {
+      Scrollable.ensureVisible(context, duration: Duration(seconds: 1));
+    }
+  }
 }
 
 NavbarVariables navbarVariables = NavbarVariables();
 
 class EnvironmentVariables {
-  final env=DotEnv(includePlatformEnvironment: true)..load();
+  final env = DotEnv(includePlatformEnvironment: true)..load();
 }
 
 EnvironmentVariables envVariables = EnvironmentVariables();

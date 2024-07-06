@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:myportfolio/GlobalVariables.dart';
 
-class DesktopProjects extends StatefulWidget {
-  const DesktopProjects({super.key});
+class TabletProjects extends StatefulWidget {
+  const TabletProjects({super.key});
 
   @override
-  State<DesktopProjects> createState() => _DesktopProjectsState();
+  State<TabletProjects> createState() => _TabletProjectsState();
 }
 
-class _DesktopProjectsState extends State<DesktopProjects> {
+class _TabletProjectsState extends State<TabletProjects> {
   final ScrollController _scrollController = ScrollController();
 
   String getUrlType(String Url) {
@@ -78,7 +78,7 @@ class _DesktopProjectsState extends State<DesktopProjects> {
   Widget build(BuildContext context) {
     return Container(
       key: navbarVariables.projectsKey,
-      height: MediaQuery.of(context).size.height,
+      constraints: BoxConstraints(minHeight: MediaQuery.of(context).size.height),
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         color: backgroundColor,
@@ -94,7 +94,8 @@ class _DesktopProjectsState extends State<DesktopProjects> {
         children: [
           Text(
             'Handcrafted Websites',
-            style: TextStyle(fontSize: desktopVariables.HeadingTextSize, fontWeight: FontWeight.bold, color: primaryColor),
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: tabletVariables.HeadingTextSize, fontWeight: FontWeight.bold, color: primaryColor),
           ),
           Text(
             'Showcasing Innovation in Web Development',

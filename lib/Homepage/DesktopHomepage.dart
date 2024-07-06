@@ -11,14 +11,19 @@ class DesktopHomepage extends StatefulWidget {
   State<DesktopHomepage> createState() => _DesktopHomepageState();
 }
 
-class _DesktopHomepageState extends State<DesktopHomepage> {
+class _DesktopHomepageState extends State<DesktopHomepage> with SingleTickerProviderStateMixin  {
   @override
   Widget build(BuildContext context) {
     return Container(
+      key: navbarVariables.homeKey,
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
-        color: navbarVariables.backgroundColor,
+        color: backgroundColor,
+        // image: DecorationImage(
+        //   image: Image.asset('assets/images/HomepageImage.jpg',opacity: AnimationController(vsync: this, value: 0.5),).image,
+        //   fit: BoxFit.cover,
+        // ),
         border: Border(
           bottom: BorderSide(
             color: Colors.black,
@@ -39,28 +44,32 @@ class _DesktopHomepageState extends State<DesktopHomepage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    // ClipRRect(
+                    //   // borderRadius: BorderRadius.circular(100),
+                    //   child: Image.asset(
+                    //     'assets/images/NewLogo.png',
+                    //     width: 600,
+                    //   ),
+                    // ),
+                    // SizedBox(height: 30),
                     Text(
                       'Unique websites for your unique business',
-                      style: TextStyle(fontSize: 75, fontWeight: FontWeight.bold, color: navbarVariables.primaryColor),
+                      style: TextStyle(fontSize: desktopVariables.HeadingTextSize, fontWeight: FontWeight.bold, color: primaryColor),
                     ),
                     Text(
                       'Crafting websites that are tailored to your business needs.',
                       style: TextStyle(
-                        fontSize: 20,
-                        color: navbarVariables.secondaryColor,
+                        fontSize: desktopVariables.BodyTextSize,
+                        color: secondaryColor,
                       ),
                     ),
                     SizedBox(height: 20),
                     ElevatedButton(
                       style: ButtonStyle(
-                        backgroundColor: WidgetStateProperty.all(navbarVariables.primaryColor),
+                        backgroundColor: WidgetStateProperty.all(primaryColor),
                       ),
                       onPressed: () {
-                        navbarVariables.scrollController.animateTo(
-                          MediaQuery.of(context).size.height * 3,
-                          duration: Duration(milliseconds: 500),
-                          curve: Curves.easeInOut,
-                        );
+                        navbarVariables.scrollToSection(navbarVariables.contactKey);
                       },
                       child: Text('Get in touch', style: TextStyle(color: Colors.white)),
                     ),
@@ -68,32 +77,26 @@ class _DesktopHomepageState extends State<DesktopHomepage> {
                 ),
                 Row(
                   children: [
-                    IconButton(
-                      onPressed: () {
-                        launchURL('https://www.instagram.com/scott_bebington/');
-                      },
-                      icon: Icon(FontAwesomeIcons.instagram, color: navbarVariables.primaryColor),
-                    ),
                     SizedBox(width: 10),
                     IconButton(
                       onPressed: () {
                         launchURL('https://www.linkedin.com/in/scott-bebington/');
                       },
-                      icon: Icon(FontAwesomeIcons.linkedin, color: navbarVariables.primaryColor),
+                      icon: Icon(FontAwesomeIcons.linkedin, color: primaryColor),
                     ),
                     SizedBox(width: 10),
                     IconButton(
                       onPressed: () {
                         launchURL('https://github.com/Scott-Bebington');
                       },
-                      icon: Icon(FontAwesomeIcons.github, color: navbarVariables.primaryColor),
+                      icon: Icon(FontAwesomeIcons.github, color: primaryColor),
                     ),
                     SizedBox(width: 10),
                     IconButton(
                       onPressed: () {
                         launchURL('https://wa.me/27716089080');
                       },
-                      icon: Icon(FontAwesomeIcons.whatsapp, color: navbarVariables.primaryColor),
+                      icon: Icon(FontAwesomeIcons.whatsapp, color: primaryColor),
                     ),
                   ],
                 ),
@@ -104,98 +107,112 @@ class _DesktopHomepageState extends State<DesktopHomepage> {
             width: MediaQuery.of(context).size.width * 0.4,
             child: Stack(
               children: [
-                Positioned(
-                  bottom: 0,
-                  right: 0,
-                  child: Container(
-                    width: MediaQuery.of(context).size.width * 0.4,
-                    height: MediaQuery.of(context).size.width * 0.4,
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(1000),
-                      ),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  bottom: 0,
-                  right: 0,
-                  child: Container(
-                    width: MediaQuery.of(context).size.width * 0.4 - 2,
-                    height: MediaQuery.of(context).size.width * 0.4 - 2,
-                    decoration: BoxDecoration(
-                      color: navbarVariables.backgroundColor,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(1000),
-                      ),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  bottom: 0,
-                  right: 0,
-                  child: Container(
-                    width: MediaQuery.of(context).size.width * 0.35,
-                    height: MediaQuery.of(context).size.width * 0.35,
-                    decoration: BoxDecoration(
-                      color: navbarVariables.primaryColor,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(1000),
-                      ),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  bottom: 0,
-                  right: 0,
-                  child: Container(
-                    width: MediaQuery.of(context).size.width * 0.35 - 5,
-                    height: MediaQuery.of(context).size.width * 0.35 - 5,
-                    decoration: BoxDecoration(
-                      color: navbarVariables.backgroundColor,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(1000),
-                      ),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  bottom: MediaQuery.of(context).size.width * 0.025,
-                  right: MediaQuery.of(context).size.width * 0.175,
-                  child: ClipRRect(
-                    // borderRadius: BorderRadius.circular(100),
-                    child: Image.asset(
-                      'assets/images/handcraft.png',
-                      fit: BoxFit.fitWidth,
-                      width: MediaQuery.of(context).size.width * 0.125,
-                    ),
-                  ),
-                ),
-                Positioned(
-                  bottom: MediaQuery.of(context).size.width * 0.025,
-                  right: MediaQuery.of(context).size.width * 0.025,
-                  child: ClipRRect(
-                    // borderRadius: BorderRadius.circular(100),
-                    child: Image.asset(
-                      'assets/images/unique.png',
-                      fit: BoxFit.fitWidth,
-                      width: MediaQuery.of(context).size.width * 0.125,
-                    ),
-                  ),
-                ),
-                Positioned(
-                  bottom: MediaQuery.of(context).size.width * 0.175,
-                  right: MediaQuery.of(context).size.width * 0.025,
-                  child: ClipRRect(
-                    // borderRadius: BorderRadius.circular(100),
-                    child: Image.asset(
-                      'assets/images/planet-earth.png',
-                      fit: BoxFit.fitWidth,
-                      width: MediaQuery.of(context).size.width * 0.125,
-                    ),
-                  ),
-                ),
+
+                // Positioned(
+                  
+                //   child: ClipRRect(
+                //     // borderRadius: BorderRadius.circular(100),
+                //     child: Image.asset(
+                //       'assets/images/HomepageImage.jpg',
+                //       fit: BoxFit.fitWidth,
+                //       width: MediaQuery.of(context).size.width * 0.4,
+                //     ),
+                //   ),
+                // ),
+
+                // Positioned(
+                //   bottom: 0,
+                //   right: 0,
+                //   child: Container(
+                //     width: MediaQuery.of(context).size.width * 0.4,
+                //     height: MediaQuery.of(context).size.width * 0.4,
+                //     decoration: BoxDecoration(
+                //       color: Colors.black,
+                //       borderRadius: BorderRadius.only(
+                //         topLeft: Radius.circular(1000),
+                //       ),
+                //     ),
+                //   ),
+                // ),
+                // Positioned(
+                //   bottom: 0,
+                //   right: 0,
+                //   child: Container(
+                //     width: MediaQuery.of(context).size.width * 0.4 - 2,
+                //     height: MediaQuery.of(context).size.width * 0.4 - 2,
+                //     decoration: BoxDecoration(
+                //       color: navbarVariables.backgroundColor,
+                //       borderRadius: BorderRadius.only(
+                //         topLeft: Radius.circular(1000),
+                //       ),
+                //     ),
+                //   ),
+                // ),
+                // Positioned(
+                //   bottom: 0,
+                //   right: 0,
+                //   child: Container(
+                //     width: MediaQuery.of(context).size.width * 0.35,
+                //     height: MediaQuery.of(context).size.width * 0.35,
+                //     decoration: BoxDecoration(
+                //       color: navbarVariables.primaryColor,
+                //       borderRadius: BorderRadius.only(
+                //         topLeft: Radius.circular(1000),
+                //       ),
+                //     ),
+                //   ),
+                // ),
+                // Positioned(
+                //   bottom: 0,
+                //   right: 0,
+                //   child: Container(
+                //     width: MediaQuery.of(context).size.width * 0.35 - 5,
+                //     height: MediaQuery.of(context).size.width * 0.35 - 5,
+                //     decoration: BoxDecoration(
+                //       color: navbarVariables.backgroundColor,
+                //       borderRadius: BorderRadius.only(
+                //         topLeft: Radius.circular(1000),
+                //       ),
+                //     ),
+                //   ),
+                // ),
+                // Positioned(
+                //   bottom: MediaQuery.of(context).size.width * 0.025,
+                //   right: MediaQuery.of(context).size.width * 0.175,
+                //   child: ClipRRect(
+                //     // borderRadius: BorderRadius.circular(100),
+                //     child: Image.asset(
+                //       'assets/images/handcraft.png',
+                //       fit: BoxFit.fitWidth,
+                //       width: MediaQuery.of(context).size.width * 0.125,
+                //     ),
+                //   ),
+                // ),
+                // Positioned(
+                //   bottom: MediaQuery.of(context).size.width * 0.025,
+                //   right: MediaQuery.of(context).size.width * 0.025,
+                //   child: ClipRRect(
+                //     // borderRadius: BorderRadius.circular(100),
+                //     child: Image.asset(
+                //       'assets/images/unique.png',
+                //       fit: BoxFit.fitWidth,
+                //       width: MediaQuery.of(context).size.width * 0.125,
+                //     ),
+                //   ),
+                // ),
+                // Positioned(
+                //   bottom: MediaQuery.of(context).size.width * 0.175,
+                //   right: MediaQuery.of(context).size.width * 0.025,
+                //   child: ClipRRect(
+                //     // borderRadius: BorderRadius.circular(100),
+                //     child: Image.asset(
+                //       'assets/images/planet-earth.png',
+                //       fit: BoxFit.fitWidth,
+                //       width: MediaQuery.of(context).size.width * 0.125,
+                //     ),
+                //   ),
+                // ),
+              
               ],
             ),
           ),
