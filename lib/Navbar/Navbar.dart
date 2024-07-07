@@ -16,7 +16,7 @@ class _NavbarState extends State<Navbar> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        if (constraints.maxWidth >= 600) {
+        if (constraints.maxWidth >= 650) {
           // Layout for larger screens
           return DesktopNavbar();
         } else {

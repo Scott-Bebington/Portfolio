@@ -37,7 +37,7 @@ class _TabletHomepageState extends State<TabletHomepage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  width: MediaQuery.of(context).size.width - 100,
+                  width: (MediaQuery.of(context).size.width * 0.9) - 100,
                   child: Text(
                     'Unique websites for your unique business',
                     style: TextStyle(fontSize: tabletVariables.HeadingTextSize, fontWeight: FontWeight.bold, color: primaryColor),
@@ -49,7 +49,7 @@ class _TabletHomepageState extends State<TabletHomepage> {
                     'Crafting websites that are tailored to your business needs.',
                     style: TextStyle(
                       fontSize: tabletVariables.BodyTextSize,
-                      color:secondaryColor,
+                      color: secondaryColor,
                     ),
                   ),
                 ),
@@ -105,38 +105,10 @@ class _TabletHomepageState extends State<TabletHomepage> {
             bottom: 0,
             right: 0,
             child: Container(
-              width: MediaQuery.of(context).size.width * 0.5,
-              height: MediaQuery.of(context).size.width * 0.5,
-              decoration: BoxDecoration(
-                color: Colors.black,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(1000),
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: 0,
-            right: 0,
-            child: Container(
-              width: MediaQuery.of(context).size.width * 0.5 - 2,
-              height: MediaQuery.of(context).size.width * 0.5 - 2,
-              decoration: BoxDecoration(
-                color: backgroundColor,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(1000),
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: 0,
-            right: 0,
-            child: Container(
-              width: MediaQuery.of(context).size.width * 0.45,
+              width: MediaQuery.of(context).size.width * 0.65,
               height: MediaQuery.of(context).size.width * 0.45,
               decoration: BoxDecoration(
-                color: primaryColor,
+                color: tertiaryColor,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(1000),
                 ),
@@ -144,52 +116,14 @@ class _TabletHomepageState extends State<TabletHomepage> {
             ),
           ),
           Positioned(
-            bottom: 0,
+            bottom: MediaQuery.of(context).size.width * 0.05,
             right: 0,
-            child: Container(
-              width: MediaQuery.of(context).size.width * 0.45 - 5,
-              height: MediaQuery.of(context).size.width * 0.45 - 5,
-              decoration: BoxDecoration(
-                color: backgroundColor,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(1000),
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: MediaQuery.of(context).size.width * 0.025,
-            right: MediaQuery.of(context).size.width * 0.225,
             child: ClipRRect(
-              // borderRadius: BorderRadius.circular(100),
+              borderRadius: BorderRadius.all(Radius.circular(100)),
               child: Image.asset(
-                'assets/images/handcraft.png',
+                'assets/images/HomepageImage.png',
                 fit: BoxFit.fitWidth,
-                width: MediaQuery.of(context).size.width * 0.15,
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: MediaQuery.of(context).size.width * 0.025,
-            right: MediaQuery.of(context).size.width * 0.025,
-            child: ClipRRect(
-              // borderRadius: BorderRadius.circular(100),
-              child: Image.asset(
-                'assets/images/unique.png',
-                fit: BoxFit.fitWidth,
-                width: MediaQuery.of(context).size.width * 0.15,
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: MediaQuery.of(context).size.width * 0.225,
-            right: MediaQuery.of(context).size.width * 0.025,
-            child: ClipRRect(
-              // borderRadius: BorderRadius.circular(100),
-              child: Image.asset(
-                'assets/images/planet-earth.png',
-                fit: BoxFit.fitWidth,
-                width: MediaQuery.of(context).size.width * 0.15,
+                width: MediaQuery.of(context).size.width * 0.5,
               ),
             ),
           ),

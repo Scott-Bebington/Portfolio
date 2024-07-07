@@ -10,7 +10,8 @@ void launchURL(String url) async {
 
 Color primaryColor = Color(0xff1d3557);
 Color secondaryColor = Color(0xffe63946);
-Color tertiaryColor = Color(0xff457b9d);
+// Color tertiaryColor = Color(0xff457b9d);
+Color tertiaryColor = Color(0xff4288c2);
 Color backgroundColor = Color.fromARGB(255, 233, 231, 231);
 
 class DesktopVariables {

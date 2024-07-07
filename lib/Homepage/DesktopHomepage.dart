@@ -11,7 +11,7 @@ class DesktopHomepage extends StatefulWidget {
   State<DesktopHomepage> createState() => _DesktopHomepageState();
 }
 
-class _DesktopHomepageState extends State<DesktopHomepage> with SingleTickerProviderStateMixin  {
+class _DesktopHomepageState extends State<DesktopHomepage> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,10 +20,6 @@ class _DesktopHomepageState extends State<DesktopHomepage> with SingleTickerProv
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         color: backgroundColor,
-        // image: DecorationImage(
-        //   image: Image.asset('assets/images/HomepageImage.jpg',opacity: AnimationController(vsync: this, value: 0.5),).image,
-        //   fit: BoxFit.cover,
-        // ),
         border: Border(
           bottom: BorderSide(
             color: Colors.black,
@@ -31,11 +27,11 @@ class _DesktopHomepageState extends State<DesktopHomepage> with SingleTickerProv
           ),
         ),
       ),
-      child: Row(
+      child: Stack(
         children: [
           Container(
             padding: EdgeInsets.all(50),
-            width: MediaQuery.of(context).size.width * 0.6,
+            width: MediaQuery.of(context).size.width > 1215 ? MediaQuery.of(context).size.width * 0.6 : MediaQuery.of(context).size.width,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -103,117 +99,30 @@ class _DesktopHomepageState extends State<DesktopHomepage> with SingleTickerProv
               ],
             ),
           ),
-          SizedBox(
-            width: MediaQuery.of(context).size.width * 0.4,
-            child: Stack(
-              children: [
-
-                // Positioned(
-                  
-                //   child: ClipRRect(
-                //     // borderRadius: BorderRadius.circular(100),
-                //     child: Image.asset(
-                //       'assets/images/HomepageImage.jpg',
-                //       fit: BoxFit.fitWidth,
-                //       width: MediaQuery.of(context).size.width * 0.4,
-                //     ),
-                //   ),
-                // ),
-
-                // Positioned(
-                //   bottom: 0,
-                //   right: 0,
-                //   child: Container(
-                //     width: MediaQuery.of(context).size.width * 0.4,
-                //     height: MediaQuery.of(context).size.width * 0.4,
-                //     decoration: BoxDecoration(
-                //       color: Colors.black,
-                //       borderRadius: BorderRadius.only(
-                //         topLeft: Radius.circular(1000),
-                //       ),
-                //     ),
-                //   ),
-                // ),
-                // Positioned(
-                //   bottom: 0,
-                //   right: 0,
-                //   child: Container(
-                //     width: MediaQuery.of(context).size.width * 0.4 - 2,
-                //     height: MediaQuery.of(context).size.width * 0.4 - 2,
-                //     decoration: BoxDecoration(
-                //       color: navbarVariables.backgroundColor,
-                //       borderRadius: BorderRadius.only(
-                //         topLeft: Radius.circular(1000),
-                //       ),
-                //     ),
-                //   ),
-                // ),
-                // Positioned(
-                //   bottom: 0,
-                //   right: 0,
-                //   child: Container(
-                //     width: MediaQuery.of(context).size.width * 0.35,
-                //     height: MediaQuery.of(context).size.width * 0.35,
-                //     decoration: BoxDecoration(
-                //       color: navbarVariables.primaryColor,
-                //       borderRadius: BorderRadius.only(
-                //         topLeft: Radius.circular(1000),
-                //       ),
-                //     ),
-                //   ),
-                // ),
-                // Positioned(
-                //   bottom: 0,
-                //   right: 0,
-                //   child: Container(
-                //     width: MediaQuery.of(context).size.width * 0.35 - 5,
-                //     height: MediaQuery.of(context).size.width * 0.35 - 5,
-                //     decoration: BoxDecoration(
-                //       color: navbarVariables.backgroundColor,
-                //       borderRadius: BorderRadius.only(
-                //         topLeft: Radius.circular(1000),
-                //       ),
-                //     ),
-                //   ),
-                // ),
-                // Positioned(
-                //   bottom: MediaQuery.of(context).size.width * 0.025,
-                //   right: MediaQuery.of(context).size.width * 0.175,
-                //   child: ClipRRect(
-                //     // borderRadius: BorderRadius.circular(100),
-                //     child: Image.asset(
-                //       'assets/images/handcraft.png',
-                //       fit: BoxFit.fitWidth,
-                //       width: MediaQuery.of(context).size.width * 0.125,
-                //     ),
-                //   ),
-                // ),
-                // Positioned(
-                //   bottom: MediaQuery.of(context).size.width * 0.025,
-                //   right: MediaQuery.of(context).size.width * 0.025,
-                //   child: ClipRRect(
-                //     // borderRadius: BorderRadius.circular(100),
-                //     child: Image.asset(
-                //       'assets/images/unique.png',
-                //       fit: BoxFit.fitWidth,
-                //       width: MediaQuery.of(context).size.width * 0.125,
-                //     ),
-                //   ),
-                // ),
-                // Positioned(
-                //   bottom: MediaQuery.of(context).size.width * 0.175,
-                //   right: MediaQuery.of(context).size.width * 0.025,
-                //   child: ClipRRect(
-                //     // borderRadius: BorderRadius.circular(100),
-                //     child: Image.asset(
-                //       'assets/images/planet-earth.png',
-                //       fit: BoxFit.fitWidth,
-                //       width: MediaQuery.of(context).size.width * 0.125,
-                //     ),
-                //   ),
-                // ),
-              
-              ],
+          Positioned(
+            bottom: 0,
+            right: 0,
+            child: Container(
+              width: MediaQuery.of(context).size.width * 0.5,
+              height: MediaQuery.of(context).size.width * 0.35,
+              decoration: BoxDecoration(
+                color: tertiaryColor,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(1000),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: MediaQuery.of(context).size.width * 0.05,
+            right: 0,
+            child: ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(100)),
+              child: Image.asset(
+                'assets/images/HomepageImage.png',
+                fit: BoxFit.fitWidth,
+                width: MediaQuery.of(context).size.width * 0.4,
+              ),
             ),
           ),
         ],
