@@ -140,12 +140,12 @@ class _TabletContactState extends State<TabletContact> {
                         decoration: InputDecoration(
                           labelText: "Name",
                           labelStyle: TextStyle(
-                            color: secondaryColor,
+                            color: primaryColor,
                           ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                              color: secondaryColor,
+                              color: primaryColor,
                             ),
                           ),
                           focusedBorder: OutlineInputBorder(
@@ -164,12 +164,12 @@ class _TabletContactState extends State<TabletContact> {
                         decoration: InputDecoration(
                           labelText: "Email",
                           labelStyle: TextStyle(
-                            color: secondaryColor,
+                            color: primaryColor,
                           ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                              color: secondaryColor,
+                              color: primaryColor,
                             ),
                           ),
                           focusedBorder: OutlineInputBorder(
@@ -188,12 +188,12 @@ class _TabletContactState extends State<TabletContact> {
                         decoration: InputDecoration(
                           labelText: "Phone",
                           labelStyle: TextStyle(
-                            color: secondaryColor,
+                            color: primaryColor,
                           ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                              color: secondaryColor,
+                              color: primaryColor,
                             ),
                           ),
                           focusedBorder: OutlineInputBorder(
@@ -216,12 +216,12 @@ class _TabletContactState extends State<TabletContact> {
                   decoration: InputDecoration(
                     labelText: "Message",
                     labelStyle: TextStyle(
-                      color: secondaryColor,
+                      color: primaryColor,
                     ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide: BorderSide(
-                        color: secondaryColor,
+                        color: primaryColor,
                       ),
                     ),
                     focusedBorder: OutlineInputBorder(

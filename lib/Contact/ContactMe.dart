@@ -86,7 +86,7 @@ class _ContactState extends State<Contact> {
         builder: (context, constraints) {
           if (constraints.maxWidth >= 1000) {
             return DesktopContact();
-          } else if (constraints.maxWidth >= 700) {
+          } else if (constraints.maxWidth >= 600) {
             return TabletContact();
           } else {
             return MobileContact();
