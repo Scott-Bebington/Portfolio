@@ -59,11 +59,7 @@ class _MobileHomepageState extends State<MobileHomepage> {
                     backgroundColor: WidgetStateProperty.all(primaryColor),
                   ),
                   onPressed: () {
-                    navbarVariables.scrollController.animateTo(
-                      MediaQuery.of(context).size.height * 3,
-                      duration: Duration(milliseconds: 500),
-                      curve: Curves.easeInOut,
-                    );
+                    navbarVariables.scrollToSection(navbarVariables.contactKey);
                   },
                   child: Text('Get in touch', style: TextStyle(color: Colors.white)),
                 ),
