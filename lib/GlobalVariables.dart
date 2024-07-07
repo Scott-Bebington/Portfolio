@@ -1,6 +1,4 @@
 // ignore_for_file: file_names, prefer_const_constructors
-
-import 'package:dotenv/dotenv.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -63,8 +61,12 @@ class NavbarVariables {
 
 NavbarVariables navbarVariables = NavbarVariables();
 
-class EnvironmentVariables {
-  final env = DotEnv(includePlatformEnvironment: true)..load();
+class EmailJSVariables {
+  late String serviceId;
+  late String templateId;
+  late String publicKey;
+  late String privateKey;
+
 }
 
-EnvironmentVariables envVariables = EnvironmentVariables();
+EmailJSVariables emailJSVariables = EmailJSVariables();

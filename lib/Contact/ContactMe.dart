@@ -2,7 +2,7 @@
 
 import 'package:emailjs/emailjs.dart' as emailjs;
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 import 'package:myportfolio/Contact/DesktopContact.dart';
 import 'package:myportfolio/Contact/MobileContact.dart';
 import 'package:myportfolio/Contact/TabletContact.dart';
@@ -44,16 +44,16 @@ class ContactVariables {
     try {
       
       await emailjs.send(
-        dotenv.env['EMAILJS_SERVICE_KEY']!,
-        dotenv.env['EMAILJS_TEMPLATE_KEY']!,
+        emailJSVariables.serviceId,
+        emailJSVariables.templateId,
         templateParams,
         emailjs.Options(
-          publicKey: dotenv.env['EMAILJS_PUBLIC_KEY']!,
-          privateKey: dotenv.env['EMAILJS_PRIVATE_KEY']!,
+          publicKey: emailJSVariables.publicKey,
+          privateKey: emailJSVariables.privateKey,
         ),
       );
 
-      // clearControllers();
+      clearControllers();
       return true;
     } catch (e) {
       print(e);
