@@ -15,7 +15,8 @@ class _TabletAboutState extends State<TabletAbout> {
   Widget build(BuildContext context) {
     return Container(
       key: navbarVariables.aboutKey,
-      height: MediaQuery.of(context).size.height,
+      // height: MediaQuery.of(context).size.height,
+      constraints: BoxConstraints(minHeight: MediaQuery.of(context).size.height),
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         color: backgroundColor,

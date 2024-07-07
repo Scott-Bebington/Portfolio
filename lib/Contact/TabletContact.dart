@@ -28,7 +28,8 @@ class _TabletContactState extends State<TabletContact> {
   Widget build(BuildContext context) {
     return Container(
       key: navbarVariables.contactKey,
-      height: MediaQuery.of(context).size.height,
+      // height: MediaQuery.of(context).size.height,
+      constraints: BoxConstraints(minHeight: MediaQuery.of(context).size.height),
       width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.only(top: 75, left: 50, right: 50, bottom: 50),
       decoration: BoxDecoration(
