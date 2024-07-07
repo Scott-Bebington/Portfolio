@@ -40,9 +40,6 @@ class _DesktopNavbarState extends State<DesktopNavbar> {
             children: [
               TextButton(
                 onPressed: () {
-                  setState(() {
-                    navbarVariables.valueChanged.value = 0;
-                  });
                   navbarVariables.scrollToSection(navbarVariables.homeKey);
                 },
                 child: Text(
@@ -52,48 +49,51 @@ class _DesktopNavbarState extends State<DesktopNavbar> {
                   ),
                 ),
               ),
-              SizedBox(width: 10),
+              // SizedBox(width: 10),
               TextButton(
                 onPressed: () {
-                  setState(() {
-                    navbarVariables.valueChanged.value = 1;
-                  });
-                  navbarVariables.scrollToSection(navbarVariables.aboutKey);
+                  navbarVariables.scrollToSection(navbarVariables.servicesKey);
                 },
                 child: Text(
-                  'About',
+                  'Servces',
                   style: TextStyle(
                     color: navbarVariables.valueChanged.value == 1 ? secondaryColor : primaryColor,
                   ),
                 ),
               ),
-              SizedBox(width: 10),
+              // SizedBox(width: 10),
               TextButton(
                 onPressed: () {
-                  setState(() {
-                    navbarVariables.valueChanged.value = 2;
-                  });
                   navbarVariables.scrollToSection(navbarVariables.projectsKey);
                 },
                 child: Text(
-                  'Projects',
+                  'Websites',
                   style: TextStyle(
                     color: navbarVariables.valueChanged.value == 2 ? secondaryColor : primaryColor,
                   ),
                 ),
               ),
-              SizedBox(width: 10),
+              // SizedBox(width: 10),
               TextButton(
                 onPressed: () {
-                  setState(() {
-                    navbarVariables.valueChanged.value = 3;
-                  });
+                  navbarVariables.scrollToSection(navbarVariables.aboutKey);
+                },
+                child: Text(
+                  'About',
+                  style: TextStyle(
+                    color: navbarVariables.valueChanged.value == 3 ? secondaryColor : primaryColor,
+                  ),
+                ),
+              ),
+              // SizedBox(width: 10),
+              TextButton(
+                onPressed: () {
                   navbarVariables.scrollToSection(navbarVariables.contactKey);
                 },
                 child: Text(
                   'Contact',
                   style: TextStyle(
-                    color: navbarVariables.valueChanged.value == 3 ? secondaryColor : primaryColor,
+                    color: navbarVariables.valueChanged.value == 4 ? secondaryColor : primaryColor,
                   ),
                 ),
               ),

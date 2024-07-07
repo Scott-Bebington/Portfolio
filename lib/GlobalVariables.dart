@@ -10,7 +10,7 @@ void launchURL(String url) async {
 
 Color primaryColor = Color(0xff1d3557);
 Color secondaryColor = Color(0xffe63946);
-Color tertiaryColor = Color(0xffa8dadc);
+Color tertiaryColor = Color(0xff457b9d);
 Color backgroundColor = Color.fromARGB(255, 233, 231, 231);
 
 class DesktopVariables {
@@ -18,6 +18,7 @@ class DesktopVariables {
   final double SubHeadingTextSize = 40;
   final double cardHeadingTextSize = 30;
   final double BodyTextSize = 20;
+  final double cardBodyTextSize = 14;
 }
 
 DesktopVariables desktopVariables = DesktopVariables();
@@ -25,7 +26,9 @@ DesktopVariables desktopVariables = DesktopVariables();
 class TabletVariables {
   final double HeadingTextSize = 60;
   final double SubHeadingTextSize = 30;
-  final double BodyTextSize = 20;
+  final double cardHeadingTextSize = 24;
+  final double BodyTextSize = 18;
+  final double cardBodyTextSize = 14;
 }
 
 TabletVariables tabletVariables = TabletVariables();
@@ -35,6 +38,8 @@ class MobileVariables {
   final double SubHeadingTextSize = 30;
   final double cardHeadingTextSize = 20;
   final double BodyTextSize = 16;
+  final double cardBodyTextSize = 12;
+  
 }
 
 MobileVariables mobileVariables = MobileVariables();
@@ -47,8 +52,9 @@ class NavbarVariables {
   ValueNotifier<int> valueChanged = ValueNotifier<int>(0);
 
   final GlobalKey homeKey = GlobalKey();
-  final GlobalKey aboutKey = GlobalKey();
+  final GlobalKey servicesKey = GlobalKey();
   final GlobalKey projectsKey = GlobalKey();
+  final GlobalKey aboutKey = GlobalKey();
   final GlobalKey contactKey = GlobalKey();
 
   void scrollToSection(GlobalKey key) {

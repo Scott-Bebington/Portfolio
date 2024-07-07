@@ -9,6 +9,7 @@ import 'package:myportfolio/Homepage/Homepage.dart';
 import 'package:myportfolio/Navbar/Navbar.dart';
 import 'package:myportfolio/Projects/Projects.dart';
 import 'package:myportfolio/RemoteConfig.dart';
+import 'package:myportfolio/Services/Services.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -48,8 +49,9 @@ class Portfolio extends StatelessWidget {
             child: Column(
               children: [
                 Homepage(),
-                AboutMe(),
+                Services(),
                 Projects(),
+                AboutMe(),
                 Contact(),
               ],
             ),

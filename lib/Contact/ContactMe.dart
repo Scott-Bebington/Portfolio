@@ -79,7 +79,7 @@ class _ContactState extends State<Contact> {
       onVisibilityChanged: (visibilityInfo) {
         var visiblePercentage = visibilityInfo.visibleFraction * 100;
         if (visiblePercentage > 50) {
-          navbarVariables.valueChanged.value = 3;
+          navbarVariables.valueChanged.value = 4;
         }
       },
       child: LayoutBuilder(

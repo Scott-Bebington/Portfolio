@@ -16,10 +16,12 @@ class _MobileNavbarState extends State<MobileNavbar> with SingleTickerProviderSt
   late Animation<double> _secondAnimation;
   late Animation<double> _thirdAnimation;
   late Animation<double> _fourthAnimation;
+  late Animation<double> _fifthAnimation;
   bool _showFirstButton = false;
   bool _showSecondButton = false;
   bool _showThirdButton = false;
   bool _showFourthButton = false;
+  bool _showFifthButton = false;
   bool _isExpanded = false;
 
   double initialXOffset = 0.0;
@@ -39,28 +41,35 @@ class _MobileNavbarState extends State<MobileNavbar> with SingleTickerProviderSt
     _firstAnimation = Tween<double>(begin: 0, end: 50).animate(
       CurvedAnimation(
         parent: _controller,
-        curve: Interval(0.0, 0.25, curve: Curves.easeInOut),
+        curve: Interval(0.0, 0.2, curve: Curves.easeInOut),
       ),
     );
 
     _secondAnimation = Tween<double>(begin: 0, end: 100).animate(
       CurvedAnimation(
         parent: _controller,
-        curve: Interval(0.25, 0.5, curve: Curves.easeInOut),
+        curve: Interval(0.2, 0.4, curve: Curves.easeInOut),
       ),
     );
 
     _thirdAnimation = Tween<double>(begin: 0, end: 150).animate(
       CurvedAnimation(
         parent: _controller,
-        curve: Interval(0.5, 0.75, curve: Curves.easeInOut),
+        curve: Interval(0.4, 0.6, curve: Curves.easeInOut),
       ),
     );
 
     _fourthAnimation = Tween<double>(begin: 0, end: 200).animate(
       CurvedAnimation(
         parent: _controller,
-        curve: Interval(0.75, 1, curve: Curves.easeInOut),
+        curve: Interval(0.6, 0.8, curve: Curves.easeInOut),
+      ),
+    );
+
+    _fifthAnimation = Tween<double>(begin: 0, end: 250).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: Interval(0.8, 1, curve: Curves.easeInOut),
       ),
     );
 
@@ -74,31 +83,40 @@ class _MobileNavbarState extends State<MobileNavbar> with SingleTickerProviderSt
           _showFirstButton = false;
         });
       }
-      if (_controller.value > 0.25 && !_showSecondButton) {
+      if (_controller.value > 0.2 && !_showSecondButton) {
         setState(() {
           _showSecondButton = true;
         });
-      } else if (_controller.value <= 0.25 && _showSecondButton) {
+      } else if (_controller.value <= 0.2 && _showSecondButton) {
         setState(() {
           _showSecondButton = false;
         });
       }
-      if (_controller.value > 0.5 && !_showThirdButton) {
+      if (_controller.value > 0.4 && !_showThirdButton) {
         setState(() {
           _showThirdButton = true;
         });
-      } else if (_controller.value <= 0.5 && _showThirdButton) {
+      } else if (_controller.value <= 0.4 && _showThirdButton) {
         setState(() {
           _showThirdButton = false;
         });
       }
-      if (_controller.value > 0.75 && !_showFourthButton) {
+      if (_controller.value > 0.6 && !_showFourthButton) {
         setState(() {
           _showFourthButton = true;
         });
-      } else if (_controller.value <= 0.75 && _showFourthButton) {
+      } else if (_controller.value <= 0.6 && _showFourthButton) {
         setState(() {
           _showFourthButton = false;
+        });
+      }
+      if (_controller.value > 0.8 && !_showFifthButton) {
+        setState(() {
+          _showFifthButton = true;
+        });
+      } else if (_controller.value <= 0.8 && _showFifthButton) {
+        setState(() {
+          _showFifthButton = false;
         });
       }
     });
@@ -146,17 +164,14 @@ class _MobileNavbarState extends State<MobileNavbar> with SingleTickerProviderSt
                 return Positioned(
                   top: initialYOffset,
                   left: initialXOffset + _firstAnimation.value,
-                  child: Tooltip(
-                    message: 'Home',
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.home_outlined,
-                        color: primaryColor,
-                      ),
-                      onPressed: () {
-                        navbarVariables.scrollToSection(navbarVariables.homeKey);
-                      },
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.home_outlined,
+                      color: primaryColor,
                     ),
+                    onPressed: () {
+                      navbarVariables.scrollToSection(navbarVariables.homeKey);
+                    },
                   ),
                 );
               },
@@ -168,17 +183,15 @@ class _MobileNavbarState extends State<MobileNavbar> with SingleTickerProviderSt
                 return Positioned(
                   top: initialYOffset,
                   left: initialXOffset + _secondAnimation.value,
-                  child: Tooltip(
-                    message: 'About me',
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.person_outline,
-                        color: primaryColor,
-                      ),
-                      onPressed: () {
-                        navbarVariables.scrollToSection(navbarVariables.aboutKey);
-                      },
+                  child: IconButton(
+                    icon: Image.asset(
+                      'assets/images/faq.png',
+                      width: 20,
+                      height: 20,
                     ),
+                    onPressed: () {
+                      navbarVariables.scrollToSection(navbarVariables.servicesKey);
+                    },
                   ),
                 );
               },
@@ -190,17 +203,14 @@ class _MobileNavbarState extends State<MobileNavbar> with SingleTickerProviderSt
                 return Positioned(
                   top: initialYOffset,
                   left: initialXOffset + _thirdAnimation.value,
-                  child: Tooltip(
-                    message: 'Projects',
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.web,
-                        color: primaryColor,
-                      ),
-                      onPressed: () {
-                        navbarVariables.scrollToSection(navbarVariables.projectsKey);
-                      },
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.web,
+                      color: primaryColor,
                     ),
+                    onPressed: () {
+                      navbarVariables.scrollToSection(navbarVariables.projectsKey);
+                    },
                   ),
                 );
               },
@@ -212,22 +222,37 @@ class _MobileNavbarState extends State<MobileNavbar> with SingleTickerProviderSt
                 return Positioned(
                   top: initialYOffset,
                   left: initialXOffset + _fourthAnimation.value,
-                  child: Tooltip(
-                    message: 'Contact me',
-                    child: IconButton(
-                      icon: Icon(
-                        Icons.email_outlined,
-                        color: primaryColor,
-                      ),
-                      onPressed: () {
-                        navbarVariables.scrollToSection(navbarVariables.contactKey);
-                      },
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.person_outline,
+                      color: primaryColor,
                     ),
+                    onPressed: () {
+                      navbarVariables.scrollToSection(navbarVariables.aboutKey);
+                    },
                   ),
                 );
               },
             ),
-      
+          if (_showFifthButton)
+            AnimatedBuilder(
+              animation: _fifthAnimation,
+              builder: (context, child) {
+                return Positioned(
+                  top: initialYOffset,
+                  left: initialXOffset + _fifthAnimation.value,
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.email_outlined,
+                      color: primaryColor,
+                    ),
+                    onPressed: () {
+                      navbarVariables.scrollToSection(navbarVariables.contactKey);
+                    },
+                  ),
+                );
+              },
+            ),
           Positioned(
             top: 10,
             right: 10,

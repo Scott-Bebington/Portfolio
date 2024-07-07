@@ -1,38 +1,40 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:emailjs/emailjs.dart' as emailjs;
 import 'package:flutter/material.dart';
-import 'package:myportfolio/About/DesktopAbout.dart';
-import 'package:myportfolio/About/MobileAbout.dart';
-import 'package:myportfolio/About/TabletAbout.dart';
+
+import 'package:myportfolio/Services/DesktopServices.dart';
+import 'package:myportfolio/Services/MobileServices.dart';
+import 'package:myportfolio/Services/TabletServices.dart';
 import 'package:myportfolio/GlobalVariables.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
-class AboutMe extends StatefulWidget {
-  const AboutMe({super.key});
+class Services extends StatefulWidget {
+  const Services({super.key});
 
   @override
-  State<AboutMe> createState() => _AboutMeState();
+  State<Services> createState() => _ServicesState();
 }
 
-class _AboutMeState extends State<AboutMe> {
+class _ServicesState extends State<Services> {
   @override
   Widget build(BuildContext context) {
     return VisibilityDetector(
-      key: Key('About'),
+      key: Key('Services'),
       onVisibilityChanged: (visibilityInfo) {
         var visiblePercentage = visibilityInfo.visibleFraction * 100;
         if (visiblePercentage > 50) {
-          navbarVariables.valueChanged.value = 3;
+          navbarVariables.valueChanged.value = 1;
         }
       },
       child: LayoutBuilder(
         builder: (context, constraints) {
           if (constraints.maxWidth >= 1000) {
-            return DesktopAbout();
+            return DesktopServices();
           } else if (constraints.maxWidth >= 600) {
-            return TabletAbout();
+            return TabletServices();
           } else {
-            return MobileAbout();
+            return MobileServices();
           }
         },
       ),
