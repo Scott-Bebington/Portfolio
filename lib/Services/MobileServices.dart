@@ -1,7 +1,4 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:myportfolio/Contact/ContactMe.dart';
 import 'package:myportfolio/GlobalVariables.dart';
@@ -349,7 +346,7 @@ class _PaymentCardState extends State<PaymentCard> with SingleTickerProviderStat
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  ContactVariables.subjectController.text = "Hi, id like to quire about the ${widget.cardName} package.";
+                  ContactVariables.subjectController.text = "Hi, id like to enquire about the ${widget.cardName} package.";
                   navbarVariables.scrollToSection(navbarVariables.contactKey);
                 },
                 style: ButtonStyle(

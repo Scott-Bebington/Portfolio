@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:emailjs/emailjs.dart' as emailjs;
 import 'package:flutter/material.dart';
 
 import 'package:myportfolio/Services/DesktopServices.dart';
