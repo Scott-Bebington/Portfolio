@@ -55,7 +55,7 @@ class _DesktopNavbarState extends State<DesktopNavbar> {
                   navbarVariables.scrollToSection(navbarVariables.servicesKey);
                 },
                 child: Text(
-                  'Servces',
+                  'Services',
                   style: TextStyle(
                     color: navbarVariables.valueChanged.value == 1 ? secondaryColor : primaryColor,
                   ),

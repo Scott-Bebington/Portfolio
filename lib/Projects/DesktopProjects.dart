@@ -117,11 +117,11 @@ class _DesktopProjectsState extends State<DesktopProjects> {
                   children: [
                     CustomContainer('assets/images/Bebvest.png', 'Bebvest (Pty) Ltd', 'Web Application', 'https://bebvest.com/'),
                     SizedBox(width: 20),
-                    CustomContainer('assets/images/X.svg', 'X Clone', 'Web Application', 'https://mini-project12.vercel.app'),
-                    SizedBox(width: 20),
                     CustomContainer('assets/images/Seattle.png', 'Seattle Coffee', 'Mobile Application', null),
                     SizedBox(width: 20),
                     CustomContainer('assets/images/TailWaggr.png', 'TailWaggr', 'Web/Mobile Application', 'https://tailwaggr.web.app/'),
+                    SizedBox(width: 20),
+                    CustomContainer('assets/images/AlexLottery.jpg', 'Alex Lotto', 'Web/Mobile Application', 'https://alex-lottery.vercel.app/'),
                   ],
                 ),
               ),

@@ -114,9 +114,9 @@ class _MobileProjectsState extends State<MobileProjects> {
             child: CarouselSlider(
               items: [
                 CustomContainer('assets/images/Bebvest.png', 'Bebvest (Pty) Ltd', 'Web Application', 'https://bebvest.com/'),
-                CustomContainer('assets/images/X.svg', 'X Clone', 'Web Application', 'https://mini-project12.vercel.app'),
                 CustomContainer('assets/images/Seattle.png', 'Seattle Coffee', 'Mobile Application', null),
                 CustomContainer('assets/images/TailWaggr.png', 'TailWaggr', 'Web/Mobile Application', 'https://tailwaggr.web.app/'),
+                CustomContainer('assets/images/AlexLottery.jpg', 'Alex Lotto', 'Web/Mobile Application', 'https://alex-lottery.vercel.app/'),
               ],
               options: CarouselOptions(
                 height: 300,
