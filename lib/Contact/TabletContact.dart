@@ -152,7 +152,7 @@ class _TabletContactState extends State<TabletContact> {
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                              color: secondaryColor,
+                              color: tertiaryColor,
                             ),
                           ),
                         ),
@@ -176,7 +176,7 @@ class _TabletContactState extends State<TabletContact> {
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                              color: secondaryColor,
+                              color: tertiaryColor,
                             ),
                           ),
                         ),
@@ -200,7 +200,7 @@ class _TabletContactState extends State<TabletContact> {
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                              color: secondaryColor,
+                              color: tertiaryColor,
                             ),
                           ),
                         ),
@@ -228,7 +228,7 @@ class _TabletContactState extends State<TabletContact> {
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide: BorderSide(
-                        color: secondaryColor,
+                        color: tertiaryColor,
                       ),
                     ),
                   ),

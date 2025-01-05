@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:myportfolio/GlobalVariables.dart';
 import 'package:flutter_social_button/flutter_social_button.dart';
 
@@ -85,7 +86,7 @@ class _MobileHomepageState extends State<MobileHomepage> {
                 ),
               ],
             ),
-          ),
+          ).animate().moveX(duration: Duration(milliseconds: 750), begin: -MediaQuery.of(context).size.width, end: 0, curve: Curves.easeOut),
           ClipRRect(
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20),
@@ -97,7 +98,7 @@ class _MobileHomepageState extends State<MobileHomepage> {
               width: MediaQuery.of(context).size.width,
               // height: MediaQuery.of(context).size.height * 0.3,
             ),
-          ),
+          ).animate().moveY(delay: Duration(seconds: 1) , duration: Duration(milliseconds: 750), begin: MediaQuery.of(context).size.height, end: 0, curve: Curves.easeOut),
         ],
       ),
     );

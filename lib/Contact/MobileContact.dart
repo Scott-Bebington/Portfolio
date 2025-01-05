@@ -133,7 +133,7 @@ class _MobileContactState extends State<MobileContact> {
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: secondaryColor,
+                    color: tertiaryColor,
                   ),
                 ),
               ),
@@ -158,7 +158,7 @@ class _MobileContactState extends State<MobileContact> {
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: secondaryColor,
+                    color: tertiaryColor,
                   ),
                 ),
               ),
@@ -183,7 +183,7 @@ class _MobileContactState extends State<MobileContact> {
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: secondaryColor,
+                    color: tertiaryColor,
                   ),
                 ),
               ),
@@ -208,7 +208,7 @@ class _MobileContactState extends State<MobileContact> {
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
-                    color: secondaryColor,
+                    color: tertiaryColor,
                   ),
                 ),
               ),

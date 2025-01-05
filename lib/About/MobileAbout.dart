@@ -83,7 +83,7 @@ class _MobileAboutState extends State<MobileAbout> {
               ),
               Text(
                 "I have experience in designing and developing robust web applications, handling both frontend and backend aspects."
-                "My technical skills include proficiency in languages such as JavaScript, Dart, Python and C++, and frameworks like React.js, Node.js, and Flutter.",
+                " My technical skills include proficiency in languages such as JavaScript, Dart, Java and C++, and frameworks like React.js, Vue.js, and Flutter.",
                 style: TextStyle(fontSize: mobileVariables.BodyTextSize, fontWeight: FontWeight.bold, color: Colors.black),
               ),
             ],

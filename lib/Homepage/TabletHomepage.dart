@@ -3,6 +3,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:myportfolio/GlobalVariables.dart';
 import 'package:flutter_social_button/flutter_social_button.dart';
 
@@ -44,7 +45,7 @@ class _TabletHomepageState extends State<TabletHomepage> {
                 ),
               ),
             ),
-          ),
+          ).animate().moveY(delay: Duration(seconds: 1) , duration: Duration(milliseconds: 750), begin: MediaQuery.of(context).size.height, end: 0, curve: Curves.easeOut),
           Positioned(
             bottom: MediaQuery.of(context).size.width * 0.05,
             right: 0,
@@ -56,7 +57,7 @@ class _TabletHomepageState extends State<TabletHomepage> {
                 width: MediaQuery.of(context).size.width * 0.45,
               ),
             ),
-          ),
+          ).animate().moveY(delay: Duration(seconds: 1) , duration: Duration(milliseconds: 750), begin: MediaQuery.of(context).size.height, end: 0, curve: Curves.easeOut),
           Positioned(
             top: 75,
             left: 50,
@@ -118,12 +119,7 @@ class _TabletHomepageState extends State<TabletHomepage> {
                 ),
               ],
             ),
-          ),
-          // Positioned(
-          //   bottom: 50,
-          //   left: 50,
-          //   child:
-          // ),
+          ).animate().moveX(duration: Duration(milliseconds: 750), begin: -MediaQuery.of(context).size.width, end: 0, curve: Curves.easeOut),
         ],
       ),
     );

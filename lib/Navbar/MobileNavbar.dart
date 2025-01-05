@@ -184,10 +184,9 @@ class _MobileNavbarState extends State<MobileNavbar> with SingleTickerProviderSt
                   top: initialYOffset,
                   left: initialXOffset + _secondAnimation.value,
                   child: IconButton(
-                    icon: Image.asset(
-                      'assets/images/faq.png',
-                      width: 20,
-                      height: 20,
+                    icon: Icon(
+                      Icons.question_mark,
+                      color: primaryColor,
                     ),
                     onPressed: () {
                       navbarVariables.scrollToSection(navbarVariables.servicesKey);

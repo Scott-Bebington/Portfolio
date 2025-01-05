@@ -151,13 +151,13 @@ class _DesktopContactState extends State<DesktopContact> {
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                              color: secondaryColor,
+                              color: tertiaryColor,
                             ),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                              color: secondaryColor,
+                              color: tertiaryColor,
                             ),
                           ),
                         ),
@@ -175,13 +175,13 @@ class _DesktopContactState extends State<DesktopContact> {
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                              color: secondaryColor,
+                              color: tertiaryColor,
                             ),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                              color: secondaryColor,
+                              color: tertiaryColor,
                             ),
                           ),
                         ),
@@ -199,13 +199,13 @@ class _DesktopContactState extends State<DesktopContact> {
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                              color: secondaryColor,
+                              color: tertiaryColor,
                             ),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
-                              color: secondaryColor,
+                              color: tertiaryColor,
                             ),
                           ),
                         ),
@@ -227,13 +227,13 @@ class _DesktopContactState extends State<DesktopContact> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide: BorderSide(
-                        color: secondaryColor,
+                        color: tertiaryColor,
                       ),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide: BorderSide(
-                        color: secondaryColor,
+                        color: tertiaryColor,
                       ),
                     ),
                   ),

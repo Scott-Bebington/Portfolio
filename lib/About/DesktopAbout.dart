@@ -65,7 +65,7 @@ class _DesktopAboutState extends State<DesktopAbout> {
                   ),
                   Text(
                     "I have experience in designing and developing robust web and mobile applications, handling both frontend and backend aspects."
-                    "My technical skills include proficiency in languages such as JavaScript, Dart, Python and C++, and frameworks like React.js, Node.js, and Flutter.",
+                    " My technical skills include proficiency in languages such as JavaScript, Dart, Java and C++, and frameworks like React.js, Vue.js, and Flutter.",
                     style: TextStyle(fontSize: desktopVariables.BodyTextSize, fontWeight: FontWeight.bold, color: Colors.black),
                   ),
                 ],

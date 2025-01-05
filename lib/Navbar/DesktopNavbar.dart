@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:myportfolio/GlobalVariables.dart';
 
 class DesktopNavbar extends StatefulWidget {
@@ -101,6 +102,6 @@ class _DesktopNavbarState extends State<DesktopNavbar> {
           ),
         ],
       ),
-    );
+    ).animate().moveY(delay: Duration(seconds: 1) , duration: Duration(milliseconds: 750), begin: -MediaQuery.of(context).size.height, end: 0, curve: Curves.easeOut);
   }
 }

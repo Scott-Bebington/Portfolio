@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:myportfolio/GlobalVariables.dart';
 import 'package:flutter_social_button/flutter_social_button.dart';
 
@@ -51,14 +52,14 @@ class _DesktopHomepageState extends State<DesktopHomepage> with SingleTickerProv
                     Text(
                       'Unique websites for your unique business',
                       style: TextStyle(fontSize: desktopVariables.HeadingTextSize, fontWeight: FontWeight.bold, color: primaryColor),
-                    ),
+                    ).animate().moveX(duration: Duration(milliseconds: 750), begin: -MediaQuery.of(context).size.width, end: 0, curve: Curves.easeOut),
                     Text(
                       'Crafting websites that are tailored to your business needs.',
                       style: TextStyle(
                         fontSize: desktopVariables.BodyTextSize,
                         color: secondaryColor,
                       ),
-                    ),
+                    ).animate().moveX(duration: Duration(milliseconds: 750), begin: -MediaQuery.of(context).size.width, end: 0, curve: Curves.easeOut),
                     SizedBox(height: 20),
                     ElevatedButton(
                       style: ButtonStyle(
@@ -68,7 +69,7 @@ class _DesktopHomepageState extends State<DesktopHomepage> with SingleTickerProv
                         navbarVariables.scrollToSection(navbarVariables.contactKey);
                       },
                       child: Text('Get in touch', style: TextStyle(color: Colors.white)),
-                    ),
+                    ).animate().moveX(duration: Duration(milliseconds: 750), begin: -MediaQuery.of(context).size.width, end: 0, curve: Curves.easeOut),
                   ],
                 ),
                 Row(
@@ -95,7 +96,7 @@ class _DesktopHomepageState extends State<DesktopHomepage> with SingleTickerProv
                       icon: Icon(FontAwesomeIcons.whatsapp, color: primaryColor),
                     ),
                   ],
-                ),
+                ).animate().moveY(delay: Duration(seconds: 1) , duration: Duration(milliseconds: 750), begin: MediaQuery.of(context).size.height, end: 0, curve: Curves.easeOut),
               ],
             ),
           ),
@@ -112,7 +113,7 @@ class _DesktopHomepageState extends State<DesktopHomepage> with SingleTickerProv
                 ),
               ),
             ),
-          ),
+          ).animate().moveY(delay: Duration(seconds: 1) , duration: Duration(milliseconds: 750), begin: MediaQuery.of(context).size.height, end: 0, curve: Curves.easeOut),
           Positioned(
             bottom: MediaQuery.of(context).size.width * 0.05,
             right: 0,
@@ -124,7 +125,7 @@ class _DesktopHomepageState extends State<DesktopHomepage> with SingleTickerProv
                 width: MediaQuery.of(context).size.width * 0.4,
               ),
             ),
-          ),
+          ).animate().moveY(delay: Duration(seconds: 1) , duration: Duration(milliseconds: 750), begin: MediaQuery.of(context).size.height, end: 0, curve: Curves.easeOut),
         ],
       ),
     );
